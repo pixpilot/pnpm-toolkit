@@ -1,9 +1,13 @@
 {
-  "name": "pnpm-turbo-monorepo-template",
+  "name": "plop-templates",
   "private": true,
   "engines": {
     "node": ">=22.14.0",
     "pnpm": ">=9.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pixpilot/plop-templates.git"
   },
   "packageManager": "pnpm@10.11.1",
   "scripts": {
