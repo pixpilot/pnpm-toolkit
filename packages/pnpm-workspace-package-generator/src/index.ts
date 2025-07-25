@@ -1,1 +1,1 @@
-export * from './generator';
+export * from './package-generator';

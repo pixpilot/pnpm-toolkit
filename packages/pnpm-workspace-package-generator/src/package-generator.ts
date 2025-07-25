@@ -5,7 +5,7 @@ import { getActions } from './actions';
 import type { GeneratorAnswers } from './types/common';
 import { getWorkspaceFolders } from './utils/folder';
 
-export function generator(plop: NodePlopAPI) {
+export function packageGenerator(plop: NodePlopAPI) {
   const workspaceFolders = getWorkspaceFolders();
 
   plop.setGenerator('init', {

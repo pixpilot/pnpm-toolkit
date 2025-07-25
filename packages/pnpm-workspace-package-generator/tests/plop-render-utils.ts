@@ -1,13 +1,13 @@
 import nodePlop from 'node-plop';
 
-import { generator } from '../src/generator';
+import { packageGenerator } from '../src/package-generator';
 import type { GeneratorAnswers } from '../src/types/common';
 
 export async function renderWithPlop(answers: GeneratorAnswers) {
   // Create a plop instance
   const plop = await nodePlop();
   // Register the generator
-  generator(plop);
+  packageGenerator(plop);
   // Get the generator
   const gen = plop.getGenerator('init');
   // Run actions with mock answers

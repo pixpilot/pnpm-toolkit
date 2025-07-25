@@ -8,17 +8,17 @@ This template generator is designed for use with [pixpilot/pnpm-turbo-monorepo-t
 
 ## Usage
 
-This package exports a function `generator(plop: PlopGenerator)` that registers the generator with Plop. You should use it in your Turbo generator or Plopfile setup:
+This package exports a function `packageGenerator(plop: PlopGenerator)` that registers the generator with Plop. You should use it in your Turbo generator or Plop setup:
 
 ```typescript
-import { generator } from '@pixpilot/pnpm-workspace-package-generator';
+import { packageGenerator } from '@pixpilot/pnpm-workspace-package-generator';
 
 export default function (plop) {
-  generator(plop);
+  packageGenerator(plop);
 }
 ```
 
-- This is not a CLI tool. You must call the function in your code to register the generator.
+- This is not a CLI tool. You must call the function in your code to register the packageGenerator.
 - Typical usage is in a Turbo generator or Plopfile, e.g. in `turbo/generators/config.ts`.
 
 For more details, see the documentation in [pixpilot/pnpm-turbo-monorepo-template](https://github.com/pixpilot/pnpm-turbo-monorepo-template).
