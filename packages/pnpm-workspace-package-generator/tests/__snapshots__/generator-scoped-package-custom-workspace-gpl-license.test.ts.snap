@@ -1,0 +1,101 @@
+{
+  "custom/scope-scoped-pkg/LICENSE": "GNU GENERAL PUBLIC LICENSE
+Version 3, 29 June 2007
+
+Copyright (c)  
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <https://www.gnu.org/licenses/>.
+",
+  "custom/scope-scoped-pkg/README.md": "# @internal/scope-scoped-pkg
+
+## Usage Add usage instructions here.",
+  "custom/scope-scoped-pkg/eslint.config.js": "import baseConfig from '@internal/eslint-config/base';
+
+/** @type {import('typescript-eslint').Config} */
+export default [...baseConfig];
+",
+  "custom/scope-scoped-pkg/package.json": "{
+  "name": "@pixpilot/scope-scoped-pkg",
+  "version": "0.0.0",
+  "keywords": [],
+  "license": "MIT",
+  "author": "pixpilot",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "private": true,
+  "scripts": {
+    "test": "vitest run",
+    "prepublishOnly": "pnpm run clean && pnpm run build",
+    "clean": "rimraf dist",
+    "build": "pnpm run clean && rollup -c",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "test:run": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint",
+    "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ../../.prettierignore"
+  },
+  "devDependencies": {
+    "@internal/eslint-config": "workspace:*",
+    "@internal/prettier-config": "workspace:*",
+    "@internal/rollup-config": "workspace:*",
+    "@internal/tsconfig": "workspace:*",
+    "@internal/vitest-config": "workspace:*",
+    "@pixpilot/dev-config": "catalog:dev",
+    "@types/node": "catalog:dev",
+    "rollup": "catalog:dev"
+  },
+  "packageManager": "pnpm@10.12.2"
+}
+",
+  "custom/scope-scoped-pkg/rollup.config.js": "import rollupConfig from '@internal/rollup-config';
+
+export default rollupConfig;
+",
+  "custom/scope-scoped-pkg/src/index.ts": "export const name = 'scope-scoped-pkg';",
+  "custom/scope-scoped-pkg/src/main.ts": "export * from './index';",
+  "custom/scope-scoped-pkg/tests/main.test.ts": "import { describe, it, expect } from 'vitest'; import { name } from '../src';
+describe('name', () => { it('should be defined', () => { expect(name).toBeDefined(); });
+});",
+  "custom/scope-scoped-pkg/tsconfig.build.json": "{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "./dist",
+    "outDir": "./dist",
+    "rootDir": "./src"
+  },
+  "include": ["src"],
+  "exclude": ["tests/**/*.spec.ts", "tests/**/*.test.ts"]
+}
+",
+  "custom/scope-scoped-pkg/tsconfig.json": "{
+  "extends": "@internal/tsconfig/base.json",
+  "include": ["src", "tests", "scripts", "rollup.config.js"]
+}
+",
+  "custom/scope-scoped-pkg/vitest.config.ts": "import baseConfig from '@internal/vitest-config'; export default baseConfig;",
+}

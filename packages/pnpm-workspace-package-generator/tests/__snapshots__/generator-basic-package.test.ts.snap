@@ -1,0 +1,83 @@
+{
+  "packages/simple-package/README.md": "# @internal/simple-package
+
+## Usage Add usage instructions here.",
+  "packages/simple-package/eslint.config.js": "import baseConfig from '@internal/eslint-config/base';
+
+/** @type {import('typescript-eslint').Config} */
+export default [...baseConfig];
+",
+  "packages/simple-package/package.json": "{
+  "name": "@pixpilot/simple-package",
+  "version": "0.0.0",
+  "keywords": [],
+  "license": "MIT",
+  "author": "pixpilot",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "private": true,
+  "scripts": {
+    "test": "vitest run",
+    "prepublishOnly": "pnpm run clean && pnpm run build",
+    "clean": "rimraf dist",
+    "build": "pnpm run clean && rollup -c",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "test:run": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint",
+    "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ../../.prettierignore"
+  },
+  "devDependencies": {
+    "@internal/eslint-config": "workspace:*",
+    "@internal/prettier-config": "workspace:*",
+    "@internal/rollup-config": "workspace:*",
+    "@internal/tsconfig": "workspace:*",
+    "@internal/vitest-config": "workspace:*",
+    "@pixpilot/dev-config": "catalog:dev",
+    "@types/node": "catalog:dev",
+    "rollup": "catalog:dev"
+  },
+  "packageManager": "pnpm@10.12.2"
+}
+",
+  "packages/simple-package/rollup.config.js": "import rollupConfig from '@internal/rollup-config';
+
+export default rollupConfig;
+",
+  "packages/simple-package/src/index.ts": "export const name = 'simple-package';",
+  "packages/simple-package/src/main.ts": "export * from './index';",
+  "packages/simple-package/tests/main.test.ts": "import { describe, it, expect } from 'vitest'; import { name } from '../src';
+describe('name', () => { it('should be defined', () => { expect(name).toBeDefined(); });
+});",
+  "packages/simple-package/tsconfig.build.json": "{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "./dist",
+    "outDir": "./dist",
+    "rootDir": "./src"
+  },
+  "include": ["src"],
+  "exclude": ["tests/**/*.spec.ts", "tests/**/*.test.ts"]
+}
+",
+  "packages/simple-package/tsconfig.json": "{
+  "extends": "@internal/tsconfig/base.json",
+  "include": ["src", "tests", "scripts", "rollup.config.js"]
+}
+",
+  "packages/simple-package/vitest.config.ts": "import baseConfig from '@internal/vitest-config'; export default baseConfig;",
+}

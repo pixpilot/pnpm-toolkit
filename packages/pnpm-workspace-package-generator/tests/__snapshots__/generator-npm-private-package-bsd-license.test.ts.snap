@@ -1,0 +1,119 @@
+{
+  "packages/private-npm/LICENSE": "BSD 3-Clause License
+
+Copyright (c) , 
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+3. Neither the name of the copyright holder nor the names of its contributors
+   may be used to endorse or promote products derived from this software
+   without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+",
+  "packages/private-npm/README.md": "# @internal/private-npm
+
+## Usage Add usage instructions here.",
+  "packages/private-npm/eslint.config.js": "import baseConfig from '@internal/eslint-config/base';
+
+/** @type {import('typescript-eslint').Config} */
+export default [...baseConfig];
+",
+  "packages/private-npm/package.json": "{
+  "name": "@pixpilot/private-npm",
+  "version": "0.0.0",
+  "keywords": [],
+  "license": "MIT",
+  "author": "pixpilot",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "prepublishOnly": "pnpm run clean && pnpm run build",
+    "clean": "rimraf dist",
+    "build": "pnpm run clean && rollup -c",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "test:run": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint",
+    "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ../../.prettierignore"
+  },
+  "devDependencies": {
+    "@internal/eslint-config": "workspace:*",
+    "@internal/prettier-config": "workspace:*",
+    "@internal/rollup-config": "workspace:*",
+    "@internal/tsconfig": "workspace:*",
+    "@internal/vitest-config": "workspace:*",
+    "@pixpilot/dev-config": "catalog:dev",
+    "@types/node": "catalog:dev",
+    "rollup": "catalog:dev"
+  },
+  "packageManager": "pnpm@10.12.2"
+}
+",
+  "packages/private-npm/release.config.js": "import config from '@internal/semantic-release';
+
+export default {
+  ...config,
+};
+",
+  "packages/private-npm/rollup.config.js": "import rollupConfig from '@internal/rollup-config';
+
+export default rollupConfig;
+",
+  "packages/private-npm/src/index.ts": "export const name = 'private-npm';",
+  "packages/private-npm/src/main.ts": "export * from './index';",
+  "packages/private-npm/tests/main.test.ts": "import { describe, it, expect } from 'vitest'; import { name } from '../src';
+describe('name', () => { it('should be defined', () => { expect(name).toBeDefined(); });
+});",
+  "packages/private-npm/tsconfig.build.json": "{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "./dist",
+    "outDir": "./dist",
+    "rootDir": "./src"
+  },
+  "include": ["src"],
+  "exclude": ["tests/**/*.spec.ts", "tests/**/*.test.ts"]
+}
+",
+  "packages/private-npm/tsconfig.json": "{
+  "extends": "@internal/tsconfig/base.json",
+  "include": ["src", "tests", "scripts", "rollup.config.js"]
+}
+",
+  "packages/private-npm/vitest.config.ts": "import baseConfig from '@internal/vitest-config'; export default baseConfig;",
+}

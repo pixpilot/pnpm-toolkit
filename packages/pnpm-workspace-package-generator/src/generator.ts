@@ -1,14 +1,11 @@
 import { kebabCase } from 'change-case';
+import type { NodePlopAPI } from 'plop';
 
 import { getActions } from './actions';
 import type { GeneratorAnswers } from './types/common';
 import { getWorkspaceFolders } from './utils/folder';
 
-interface PlopGenerator {
-  setGenerator: (name: string, config: unknown) => void;
-}
-
-export function generator(plop: PlopGenerator) {
+export function generator(plop: NodePlopAPI) {
   const workspaceFolders = getWorkspaceFolders();
 
   plop.setGenerator('init', {
@@ -54,7 +51,7 @@ export function generator(plop: PlopGenerator) {
         name: 'isPublicPackage',
         message: 'Is this a public package?',
         default: false,
-        when: (answers: GeneratorAnswers) => answers.isNpmPackage === true,
+        when: (answers) => (answers as GeneratorAnswers).isNpmPackage === true,
       },
       {
         type: 'list',
@@ -73,8 +70,8 @@ export function generator(plop: PlopGenerator) {
         default: 'none',
       },
     ],
-    actions(data: GeneratorAnswers) {
-      return getActions(data);
+    actions(data) {
+      return getActions(data as GeneratorAnswers) as never;
     },
   });
 }

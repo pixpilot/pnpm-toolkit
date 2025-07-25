@@ -1,0 +1,84 @@
+{
+  "packages/empty-license/LICENSE": "",
+  "packages/empty-license/README.md": "# @internal/empty-license
+
+## Usage Add usage instructions here.",
+  "packages/empty-license/eslint.config.js": "import baseConfig from '@internal/eslint-config/base';
+
+/** @type {import('typescript-eslint').Config} */
+export default [...baseConfig];
+",
+  "packages/empty-license/package.json": "{
+  "name": "@pixpilot/empty-license",
+  "version": "0.0.0",
+  "keywords": [],
+  "license": "MIT",
+  "author": "pixpilot",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "private": true,
+  "scripts": {
+    "test": "vitest run",
+    "prepublishOnly": "pnpm run clean && pnpm run build",
+    "clean": "rimraf dist",
+    "build": "pnpm run clean && rollup -c",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "test:run": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint",
+    "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ../../.prettierignore"
+  },
+  "devDependencies": {
+    "@internal/eslint-config": "workspace:*",
+    "@internal/prettier-config": "workspace:*",
+    "@internal/rollup-config": "workspace:*",
+    "@internal/tsconfig": "workspace:*",
+    "@internal/vitest-config": "workspace:*",
+    "@pixpilot/dev-config": "catalog:dev",
+    "@types/node": "catalog:dev",
+    "rollup": "catalog:dev"
+  },
+  "packageManager": "pnpm@10.12.2"
+}
+",
+  "packages/empty-license/rollup.config.js": "import rollupConfig from '@internal/rollup-config';
+
+export default rollupConfig;
+",
+  "packages/empty-license/src/index.ts": "export const name = 'empty-license';",
+  "packages/empty-license/src/main.ts": "export * from './index';",
+  "packages/empty-license/tests/main.test.ts": "import { describe, it, expect } from 'vitest'; import { name } from '../src';
+describe('name', () => { it('should be defined', () => { expect(name).toBeDefined(); });
+});",
+  "packages/empty-license/tsconfig.build.json": "{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "./dist",
+    "outDir": "./dist",
+    "rootDir": "./src"
+  },
+  "include": ["src"],
+  "exclude": ["tests/**/*.spec.ts", "tests/**/*.test.ts"]
+}
+",
+  "packages/empty-license/tsconfig.json": "{
+  "extends": "@internal/tsconfig/base.json",
+  "include": ["src", "tests", "scripts", "rollup.config.js"]
+}
+",
+  "packages/empty-license/vitest.config.ts": "import baseConfig from '@internal/vitest-config'; export default baseConfig;",
+}

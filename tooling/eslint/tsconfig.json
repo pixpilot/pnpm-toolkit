@@ -1,5 +1,10 @@
 {
   "extends": "@internal/tsconfig/base.json",
+  "compilerOptions": {
+    "rootDir": "./",
+    "moduleResolution": "node",
+    "types": ["typescript-eslint"]
+  },
   "include": ["."],
   "exclude": ["node_modules"]
 }

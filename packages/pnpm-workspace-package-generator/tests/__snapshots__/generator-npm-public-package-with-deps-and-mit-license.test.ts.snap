@@ -1,0 +1,113 @@
+{
+  "packages/public-npm/LICENSE": "MIT License
+
+Copyright (c) 2025 pixpilot
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+",
+  "packages/public-npm/README.md": "# @internal/public-npm
+
+## Usage Add usage instructions here.",
+  "packages/public-npm/eslint.config.js": "import baseConfig from '@internal/eslint-config/base';
+
+/** @type {import('typescript-eslint').Config} */
+export default [...baseConfig];
+",
+  "packages/public-npm/package.json": "{
+  "name": "@pixpilot/public-npm",
+  "version": "0.0.0",
+  "keywords": [],
+  "license": "MIT",
+  "author": "pixpilot",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "prepublishOnly": "pnpm run clean && pnpm run build",
+    "clean": "rimraf dist",
+    "build": "pnpm run clean && rollup -c",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "test:run": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint",
+    "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ../../.prettierignore"
+  },
+  "devDependencies": {
+    "@internal/eslint-config": "workspace:*",
+    "@internal/prettier-config": "workspace:*",
+    "@internal/rollup-config": "workspace:*",
+    "@internal/tsconfig": "workspace:*",
+    "@internal/vitest-config": "workspace:*",
+    "@pixpilot/dev-config": "catalog:dev",
+    "@types/node": "catalog:dev",
+    "rollup": "catalog:dev"
+  },
+  "packageManager": "pnpm@10.12.2"
+}
+",
+  "packages/public-npm/release.config.js": "import config from '@internal/semantic-release';
+
+export default {
+  ...config,
+};
+",
+  "packages/public-npm/rollup.config.js": "import rollupConfig from '@internal/rollup-config';
+
+export default rollupConfig;
+",
+  "packages/public-npm/src/index.ts": "export const name = 'public-npm';",
+  "packages/public-npm/src/main.ts": "export * from './index';",
+  "packages/public-npm/tests/main.test.ts": "import { describe, it, expect } from 'vitest'; import { name } from '../src';
+describe('name', () => { it('should be defined', () => { expect(name).toBeDefined(); });
+});",
+  "packages/public-npm/tsconfig.build.json": "{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "./dist",
+    "outDir": "./dist",
+    "rootDir": "./src"
+  },
+  "include": ["src"],
+  "exclude": ["tests/**/*.spec.ts", "tests/**/*.test.ts"]
+}
+",
+  "packages/public-npm/tsconfig.json": "{
+  "extends": "@internal/tsconfig/base.json",
+  "include": ["src", "tests", "scripts", "rollup.config.js"]
+}
+",
+  "packages/public-npm/vitest.config.ts": "import baseConfig from '@internal/vitest-config'; export default baseConfig;",
+}
