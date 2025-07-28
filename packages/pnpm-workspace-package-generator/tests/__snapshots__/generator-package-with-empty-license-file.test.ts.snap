@@ -1,5 +1,5 @@
 {
-  "packages/empty-license/LICENSE": "",
+  "packages/@internal/empty-license/LICENSE": "",
   "packages/empty-license/README.md": "# @internal/empty-license
 
 ## Usage Add usage instructions here.",
@@ -9,7 +9,7 @@
 export default [...baseConfig];
 ",
   "packages/empty-license/package.json": "{
-  "name": "@pixpilot/empty-license",
+  "name": "@internal/empty-license",
   "version": "0.0.0",
   "keywords": [],
   "license": "MIT",
@@ -59,7 +59,7 @@ export default [...baseConfig];
 export default rollupConfig;
 ",
   "packages/empty-license/src/index.ts": "export * from './main';",
-  "packages/empty-license/src/main.ts": "export const name = 'empty-license';",
+  "packages/empty-license/src/main.ts": "export const name = '@internal/empty-license';",
   "packages/empty-license/tests/main.test.ts": "import { describe, it, expect } from 'vitest'; import { name } from '../src';
 describe('name', () => { it('should be defined', () => { expect(name).toBeDefined(); });
 });",

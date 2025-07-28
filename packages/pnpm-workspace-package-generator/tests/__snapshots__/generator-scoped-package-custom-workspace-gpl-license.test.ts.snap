@@ -1,5 +1,5 @@
 {
-  "custom/scope-scoped-pkg/LICENSE": "GNU GENERAL PUBLIC LICENSE
+  "custom/@scope/scoped-pkg/LICENSE": "GNU GENERAL PUBLIC LICENSE
 Version 3, 29 June 2007
 
 Copyright (c)  
@@ -17,16 +17,16 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 ",
-  "custom/scope-scoped-pkg/README.md": "# @internal/scope-scoped-pkg
+  "custom/scoped-pkg/README.md": "# @scope/scoped-pkg
 
 ## Usage Add usage instructions here.",
-  "custom/scope-scoped-pkg/eslint.config.js": "import baseConfig from '@internal/eslint-config/base';
+  "custom/scoped-pkg/eslint.config.js": "import baseConfig from '@internal/eslint-config/base';
 
 /** @type {import('typescript-eslint').Config} */
 export default [...baseConfig];
 ",
-  "custom/scope-scoped-pkg/package.json": "{
-  "name": "@pixpilot/scope-scoped-pkg",
+  "custom/scoped-pkg/package.json": "{
+  "name": "@scope/scoped-pkg",
   "version": "0.0.0",
   "keywords": [],
   "license": "MIT",
@@ -71,16 +71,16 @@ export default [...baseConfig];
   "packageManager": "pnpm@10.12.2"
 }
 ",
-  "custom/scope-scoped-pkg/rollup.config.js": "import rollupConfig from '@internal/rollup-config';
+  "custom/scoped-pkg/rollup.config.js": "import rollupConfig from '@internal/rollup-config';
 
 export default rollupConfig;
 ",
-  "custom/scope-scoped-pkg/src/index.ts": "export * from './main';",
-  "custom/scope-scoped-pkg/src/main.ts": "export const name = 'scope-scoped-pkg';",
-  "custom/scope-scoped-pkg/tests/main.test.ts": "import { describe, it, expect } from 'vitest'; import { name } from '../src';
+  "custom/scoped-pkg/src/index.ts": "export * from './main';",
+  "custom/scoped-pkg/src/main.ts": "export const name = '@scope/scoped-pkg';",
+  "custom/scoped-pkg/tests/main.test.ts": "import { describe, it, expect } from 'vitest'; import { name } from '../src';
 describe('name', () => { it('should be defined', () => { expect(name).toBeDefined(); });
 });",
-  "custom/scope-scoped-pkg/tsconfig.build.json": "{
+  "custom/scoped-pkg/tsconfig.build.json": "{
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "declaration": true,
@@ -92,10 +92,10 @@ describe('name', () => { it('should be defined', () => { expect(name).toBeDefine
   "exclude": ["tests/**/*.spec.ts", "tests/**/*.test.ts"]
 }
 ",
-  "custom/scope-scoped-pkg/tsconfig.json": "{
+  "custom/scoped-pkg/tsconfig.json": "{
   "extends": "@internal/tsconfig/base.json",
   "include": ["src", "tests", "scripts", "rollup.config.js"]
 }
 ",
-  "custom/scope-scoped-pkg/vitest.config.ts": "import baseConfig from '@internal/vitest-config'; export default baseConfig;",
+  "custom/scoped-pkg/vitest.config.ts": "import baseConfig from '@internal/vitest-config'; export default baseConfig;",
 }

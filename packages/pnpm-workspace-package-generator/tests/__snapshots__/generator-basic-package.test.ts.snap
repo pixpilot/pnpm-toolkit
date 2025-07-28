@@ -8,7 +8,7 @@
 export default [...baseConfig];
 ",
   "packages/simple-package/package.json": "{
-  "name": "@pixpilot/simple-package",
+  "name": "@internal/simple-package",
   "version": "0.0.0",
   "keywords": [],
   "license": "MIT",
@@ -58,7 +58,7 @@ export default [...baseConfig];
 export default rollupConfig;
 ",
   "packages/simple-package/src/index.ts": "export * from './main';",
-  "packages/simple-package/src/main.ts": "export const name = 'simple-package';",
+  "packages/simple-package/src/main.ts": "export const name = '@internal/simple-package';",
   "packages/simple-package/tests/main.test.ts": "import { describe, it, expect } from 'vitest'; import { name } from '../src';
 describe('name', () => { it('should be defined', () => { expect(name).toBeDefined(); });
 });",

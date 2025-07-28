@@ -21,7 +21,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ",
-  "packages/public-npm/README.md": "# @internal/public-npm
+  "packages/public-npm/README.md": "# public-npm
 
 ## Usage Add usage instructions here.",
   "packages/public-npm/eslint.config.js": "import baseConfig from '@internal/eslint-config/base';
@@ -30,7 +30,7 @@ SOFTWARE.
 export default [...baseConfig];
 ",
   "packages/public-npm/package.json": "{
-  "name": "@pixpilot/public-npm",
+  "name": "public-npm",
   "version": "0.0.0",
   "keywords": [],
   "license": "MIT",

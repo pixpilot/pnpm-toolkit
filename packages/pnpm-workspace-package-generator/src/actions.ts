@@ -1,10 +1,10 @@
 import { execSync } from 'node:child_process';
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 
-import { kebabCase } from 'change-case';
-
 import { getLicenseActions } from './license-actions';
 import type { GeneratorAnswers } from './types/common';
+import { getDirName } from './utils/dir-name';
+import { getPackageName } from './utils/package-name';
 import { createJoinRelative } from './utils/path';
 
 const joinRel = createJoinRelative(import.meta.url);
@@ -13,65 +13,63 @@ export function getActions(data: GeneratorAnswers) {
   const actions = [
     (answers: GeneratorAnswers) => {
       if (answers.name) {
-        // Ensure name is in kebab-case
-        const kebabName = kebabCase(answers.name);
-
-        if (kebabName.startsWith('@internal/') || kebabName.startsWith('@')) {
-          answers.name = kebabName.replace(/^@[^/]+\//, '');
-        } else {
-          answers.name = kebabName;
-        }
+        answers.name = getPackageName({
+          name: answers.name,
+          isNpmPackage: data.isNpmPackage,
+          orgName: data.orgName,
+        });
       }
+      answers.dirName = getDirName(answers.name);
       return 'Config sanitized';
     },
     {
       type: 'add',
-      path: '{{ workspace }}/{{ name }}/eslint.config.js',
+      path: '{{ workspace }}/{{ dirName }}/eslint.config.js',
       templateFile: joinRel('templates', 'eslint.config.js.hbs'),
     },
     {
       type: 'add',
-      path: '{{ workspace }}/{{ name }}/package.json',
+      path: '{{ workspace }}/{{ dirName }}/package.json',
       templateFile: joinRel('templates', 'package.json.hbs'),
     },
     {
       type: 'add',
-      path: '{{ workspace }}/{{ name }}/tsconfig.json',
+      path: '{{ workspace }}/{{ dirName }}/tsconfig.json',
       templateFile: joinRel('templates', 'tsconfig.json.hbs'),
     },
     {
       type: 'add',
-      path: '{{ workspace }}/{{ name }}/rollup.config.js',
+      path: '{{ workspace }}/{{ dirName }}/rollup.config.js',
       templateFile: joinRel('templates', 'rollup.config.js.hbs'),
     },
     {
       type: 'add',
-      path: '{{ workspace }}/{{ name }}/vitest.config.ts',
+      path: '{{ workspace }}/{{ dirName }}/vitest.config.ts',
       templateFile: joinRel('templates', 'vitest.config.ts.hbs'),
     },
     {
       type: 'add',
-      path: '{{ workspace }}/{{ name }}/tsconfig.build.json',
+      path: '{{ workspace }}/{{ dirName }}/tsconfig.build.json',
       templateFile: joinRel('templates', 'tsconfig.build.json.hbs'),
     },
     {
       type: 'add',
-      path: '{{ workspace }}/{{ name }}/README.md',
+      path: '{{ workspace }}/{{ dirName }}/README.md',
       templateFile: joinRel('templates', 'README.md.hbs'),
     },
     {
       type: 'add',
-      path: '{{ workspace }}/{{ name }}/src/main.ts',
+      path: '{{ workspace }}/{{ dirName }}/src/main.ts',
       templateFile: joinRel('templates', 'src', 'main.ts.hbs'),
     },
     {
       type: 'add',
-      path: '{{ workspace }}/{{ name }}/src/index.ts',
+      path: '{{ workspace }}/{{ dirName }}/src/index.ts',
       templateFile: joinRel('templates', 'src', 'index.ts.hbs'),
     },
     {
       type: 'add',
-      path: '{{ workspace }}/{{ name }}/tests/main.test.ts',
+      path: '{{ workspace }}/{{ dirName }}/tests/main.test.ts',
       templateFile: joinRel('templates', 'tests', 'main.test.ts.hbs'),
     },
   ];
@@ -80,7 +78,7 @@ export function getActions(data: GeneratorAnswers) {
   if (data.isNpmPackage === true) {
     actions.push({
       type: 'add',
-      path: '{{ workspace }}/{{ name }}/release.config.js',
+      path: '{{ workspace }}/{{ dirName }}/release.config.js',
       templateFile: joinRel('templates', 'release.config.js.hbs'),
     });
   }
@@ -90,7 +88,7 @@ export function getActions(data: GeneratorAnswers) {
 
   // Add the package.json modify action as a custom function
   actions.push((answers: GeneratorAnswers) => {
-    const pathStr = `${answers.workspace}/${answers.name}/package.json`;
+    const pathStr = `${answers.workspace}/${answers.dirName}/package.json`;
     if (!existsSync(pathStr)) return 'package.json not found';
     const content = readFileSync(pathStr, 'utf8');
     let pkg: Record<string, unknown> = {};
@@ -141,7 +139,7 @@ export function getActions(data: GeneratorAnswers) {
       try {
         execSync('pnpm i', { stdio: 'inherit' });
         execSync(
-          `pnpm prettier --write ${answers.workspace}/${answers.name}/** --list-different`,
+          `pnpm prettier --write ${answers.workspace}/${answers.dirName}/** --list-different`,
           { stdio: 'inherit' },
         );
         return `Package '${answers.name}' scaffolded successfully in '${answers.workspace}' workspace!`;

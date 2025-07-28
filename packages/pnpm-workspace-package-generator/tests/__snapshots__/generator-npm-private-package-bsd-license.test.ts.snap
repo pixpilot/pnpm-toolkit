@@ -27,7 +27,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ",
-  "packages/private-npm/README.md": "# @internal/private-npm
+  "packages/private-npm/README.md": "# private-npm
 
 ## Usage Add usage instructions here.",
   "packages/private-npm/eslint.config.js": "import baseConfig from '@internal/eslint-config/base';
@@ -36,7 +36,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 export default [...baseConfig];
 ",
   "packages/private-npm/package.json": "{
-  "name": "@pixpilot/private-npm",
+  "name": "private-npm",
   "version": "0.0.0",
   "keywords": [],
   "license": "MIT",

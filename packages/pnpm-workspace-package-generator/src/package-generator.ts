@@ -2,10 +2,10 @@ import { kebabCase } from 'change-case';
 import type { NodePlopAPI } from 'plop';
 
 import { getActions } from './actions';
-import type { GeneratorAnswers } from './types/common';
+import type { GeneratorAnswers, GeneratorOptions } from './types/common';
 import { getWorkspaceFolders } from './utils/folder';
 
-export function packageGenerator(plop: NodePlopAPI) {
+export function packageGenerator(plop: NodePlopAPI, options?: GeneratorOptions) {
   const workspaceFolders = getWorkspaceFolders();
 
   plop.setGenerator('init', {
@@ -71,7 +71,8 @@ export function packageGenerator(plop: NodePlopAPI) {
       },
     ],
     actions(data) {
-      return getActions(data as GeneratorAnswers) as never;
+      // Merge options into data so getActions can use orgName
+      return getActions({ ...data, ...options } as GeneratorAnswers) as never;
     },
   });
 }
