@@ -58,8 +58,8 @@ export default [...baseConfig];
 
 export default rollupConfig;
 ",
-  "packages/empty-license/src/index.ts": "export const name = 'empty-license';",
-  "packages/empty-license/src/main.ts": "export * from './index';",
+  "packages/empty-license/src/index.ts": "export * from './main';",
+  "packages/empty-license/src/main.ts": "export const name = 'empty-license';",
   "packages/empty-license/tests/main.test.ts": "import { describe, it, expect } from 'vitest'; import { name } from '../src';
 describe('name', () => { it('should be defined', () => { expect(name).toBeDefined(); });
 });",

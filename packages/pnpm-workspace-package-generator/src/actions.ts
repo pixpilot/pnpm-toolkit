@@ -41,11 +41,6 @@ export function getActions(data: GeneratorAnswers) {
     },
     {
       type: 'add',
-      path: '{{ workspace }}/{{ name }}/src/index.ts',
-      template: "export const name = '{{ name }}';",
-    },
-    {
-      type: 'add',
       path: '{{ workspace }}/{{ name }}/rollup.config.js',
       templateFile: joinRel('templates', 'rollup.config.js.hbs'),
     },
@@ -68,6 +63,11 @@ export function getActions(data: GeneratorAnswers) {
       type: 'add',
       path: '{{ workspace }}/{{ name }}/src/main.ts',
       templateFile: joinRel('templates', 'src', 'main.ts.hbs'),
+    },
+    {
+      type: 'add',
+      path: '{{ workspace }}/{{ name }}/src/index.ts',
+      templateFile: joinRel('templates', 'src', 'index.ts.hbs'),
     },
     {
       type: 'add',

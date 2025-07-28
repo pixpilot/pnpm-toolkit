@@ -24,9 +24,6 @@ export function renderActionsWithHandlebars(answers: GeneratorAnswers) {
       let content = '';
       if (action.templateFile) {
         content = renderTemplate(action.templateFile, answers);
-      } else if (action.template) {
-        const template = Handlebars.compile(action.template);
-        content = template(answers);
       }
       files[
         action.path.replace(/{{\s*(\w+)\s*}}/g, (_, key) => (answers as any)[key] ?? '')

@@ -1,5 +1,5 @@
-import { generator as packageGen } from '../../packages/pnpm-workspace-package-generator/dist/index';
+import packageGenerator from '../../packages/pnpm-workspace-package-generator/dist/index';
 
 export default function generator(plop: unknown) {
-  packageGen(plop as never);
+  packageGenerator(plop as never);
 }

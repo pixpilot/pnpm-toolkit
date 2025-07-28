@@ -75,8 +75,8 @@ export default [...baseConfig];
 
 export default rollupConfig;
 ",
-  "custom/scope-scoped-pkg/src/index.ts": "export const name = 'scope-scoped-pkg';",
-  "custom/scope-scoped-pkg/src/main.ts": "export * from './index';",
+  "custom/scope-scoped-pkg/src/index.ts": "export * from './main';",
+  "custom/scope-scoped-pkg/src/main.ts": "export const name = 'scope-scoped-pkg';",
   "custom/scope-scoped-pkg/tests/main.test.ts": "import { describe, it, expect } from 'vitest'; import { name } from '../src';
 describe('name', () => { it('should be defined', () => { expect(name).toBeDefined(); });
 });",

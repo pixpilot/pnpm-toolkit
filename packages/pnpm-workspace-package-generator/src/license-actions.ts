@@ -20,7 +20,7 @@ export function getLicenseActions(data: LicenseActionInput) {
         {
           type: 'add',
           path: `{{ workspace }}/{{ name }}/LICENSE`,
-          template: '',
+          templateFile: joinRel('templates', 'LICENSE_EMPTY'),
         },
       ];
     case 'mit':

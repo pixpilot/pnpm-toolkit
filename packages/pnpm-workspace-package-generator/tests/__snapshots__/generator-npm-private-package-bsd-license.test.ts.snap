@@ -93,8 +93,8 @@ export default {
 
 export default rollupConfig;
 ",
-  "packages/private-npm/src/index.ts": "export const name = 'private-npm';",
-  "packages/private-npm/src/main.ts": "export * from './index';",
+  "packages/private-npm/src/index.ts": "export * from './main';",
+  "packages/private-npm/src/main.ts": "export const name = 'private-npm';",
   "packages/private-npm/tests/main.test.ts": "import { describe, it, expect } from 'vitest'; import { name } from '../src';
 describe('name', () => { it('should be defined', () => { expect(name).toBeDefined(); });
 });",

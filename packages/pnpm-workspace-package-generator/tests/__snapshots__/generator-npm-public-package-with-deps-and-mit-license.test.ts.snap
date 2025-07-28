@@ -87,8 +87,8 @@ export default {
 
 export default rollupConfig;
 ",
-  "packages/public-npm/src/index.ts": "export const name = 'public-npm';",
-  "packages/public-npm/src/main.ts": "export * from './index';",
+  "packages/public-npm/src/index.ts": "export * from './main';",
+  "packages/public-npm/src/main.ts": "export const name = 'public-npm';",
   "packages/public-npm/tests/main.test.ts": "import { describe, it, expect } from 'vitest'; import { name } from '../src';
 describe('name', () => { it('should be defined', () => { expect(name).toBeDefined(); });
 });",
