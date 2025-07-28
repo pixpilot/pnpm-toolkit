@@ -20,6 +20,16 @@ export function getActions(data: GeneratorAnswers) {
         });
       }
       answers.dirName = getDirName(answers.name);
+
+      // Set repoUrl if baseRepoUrl or baseRepo is provided
+      if (answers.baseRepoUrl) {
+        // Ensure baseRepo(Url) ends with a slash
+        const repoBase = answers.baseRepoUrl ?? '';
+        const repoBaseWithSlash = repoBase.endsWith('/') ? repoBase : `${repoBase}/`;
+        const repoName = answers.dirName ?? '';
+        answers.repoUrl = `${repoBaseWithSlash}${repoName}.git`;
+      }
+
       return 'Config sanitized';
     },
     {
@@ -113,6 +123,7 @@ export function getActions(data: GeneratorAnswers) {
       (pkg['devDependencies'] as Record<string, string>)['@internal/semantic-release'] =
         'workspace:*';
     }
+
     // Sort dependencies and devDependencies alphabetically
     if (pkg['dependencies'] && typeof pkg['dependencies'] === 'object') {
       const entries = Object.entries(pkg['dependencies'] as Record<string, string>);

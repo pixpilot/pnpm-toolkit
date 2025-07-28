@@ -1,8 +1,10 @@
 import { describe, it, expect } from 'vitest';
 
+import type { GeneratorAnswers } from '../src/types/common';
+
 import { renderActionsWithHandlebars } from './handlebars-render-utils';
 
-const cases = [
+const cases: { name: string; answers: GeneratorAnswers }[] = [
   {
     name: 'basic package',
     answers: {
@@ -53,6 +55,20 @@ const cases = [
       deps: '',
       isNpmPackage: false,
       licenseType: 'empty',
+    },
+  },
+  {
+    name: 'package with author and baseRepo and organization',
+    answers: {
+      workspace: 'packages',
+      name: 'with-author-repo',
+      deps: '',
+      isNpmPackage: true,
+      isPublicPackage: true,
+      licenseType: 'mit',
+      author: 'Test Author',
+      orgName: 'test-org',
+      baseRepoUrl: 'https://github.com/example/',
     },
   },
 ];

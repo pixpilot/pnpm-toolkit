@@ -32,9 +32,26 @@ A modern TypeScript monorepo template for npm packages, managed with pnpm and Tu
 
 - `packages/utils` – Example utility package
 
-### 🏷️ Package Naming Convention
+### 🛠️ GeneratorOptions
 
-In this template, we use `@pixpilot` as a placeholder for package names. As a user, you might want to replace it with your own organization or project name.
+The package generator in this monorepo uses the following TypeScript interface to customize the creation of new packages:
+
+```typescript
+export interface GeneratorOptions {
+  orgName?: string; // Organization or scope name for generated packages (e.g., "@your-org")
+  author?: string; // Author name for the generated package's package.json
+  /**
+   * The base URL for the repository hosting service (e.g., 'https://github.com/example/').
+   * The package name (or directory name) will be appended to this base URL, followed by '.git',
+   * to form the full repository URL for the generated package.
+   * Example: If baseRepoUrl is 'https://github.com/example/' and the package name is 'my-lib',
+   * the resulting repository URL will be 'https://github.com/example/my-lib.git'.
+   */
+  baseRepoUrl?: string;
+}
+```
+
+These options can be provided when running the generator to control naming, authorship, and repository configuration for new packages.
 
 ## 🚢 Releasing Packages (Independent Versioning)
 

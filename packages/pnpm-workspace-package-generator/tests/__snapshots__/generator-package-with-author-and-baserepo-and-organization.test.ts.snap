@@ -1,5 +1,5 @@
 {
-  "packages/public-npm/LICENSE": "MIT License
+  "packages/@test-org/with-author-repo/LICENSE": "MIT License
 
 Copyright (c) 2025 pixpilot
 
@@ -21,19 +21,24 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ",
-  "packages/public-npm/README.md": "# public-npm
+  "packages/with-author-repo/README.md": "# @test-org/with-author-repo
 
 ## Usage Add usage instructions here.",
-  "packages/public-npm/eslint.config.js": "import baseConfig from '@internal/eslint-config/base';
+  "packages/with-author-repo/eslint.config.js": "import baseConfig from '@internal/eslint-config/base';
 
 /** @type {import('typescript-eslint').Config} */
 export default [...baseConfig];
 ",
-  "packages/public-npm/package.json": "{
-  "name": "public-npm",
+  "packages/with-author-repo/package.json": "{
+  "name": "@test-org/with-author-repo",
   "version": "0.0.0",
   "keywords": [],
   "license": "MIT",
+  "author": "Test Author",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/example/with-author-repo.git"
+  },
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -76,22 +81,22 @@ export default [...baseConfig];
   "packageManager": "pnpm@10.12.2"
 }
 ",
-  "packages/public-npm/release.config.js": "import config from '@internal/semantic-release';
+  "packages/with-author-repo/release.config.js": "import config from '@internal/semantic-release';
 
 export default {
   ...config,
 };
 ",
-  "packages/public-npm/rollup.config.js": "import rollupConfig from '@internal/rollup-config';
+  "packages/with-author-repo/rollup.config.js": "import rollupConfig from '@internal/rollup-config';
 
 export default rollupConfig;
 ",
-  "packages/public-npm/src/index.ts": "export * from './main';",
-  "packages/public-npm/src/main.ts": "export const name = 'public-npm';",
-  "packages/public-npm/tests/main.test.ts": "import { describe, it, expect } from 'vitest'; import { name } from '../src';
+  "packages/with-author-repo/src/index.ts": "export * from './main';",
+  "packages/with-author-repo/src/main.ts": "export const name = '@test-org/with-author-repo';",
+  "packages/with-author-repo/tests/main.test.ts": "import { describe, it, expect } from 'vitest'; import { name } from '../src';
 describe('name', () => { it('should be defined', () => { expect(name).toBeDefined(); });
 });",
-  "packages/public-npm/tsconfig.build.json": "{
+  "packages/with-author-repo/tsconfig.build.json": "{
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "declaration": true,
@@ -103,10 +108,10 @@ describe('name', () => { it('should be defined', () => { expect(name).toBeDefine
   "exclude": ["tests/**/*.spec.ts", "tests/**/*.test.ts"]
 }
 ",
-  "packages/public-npm/tsconfig.json": "{
+  "packages/with-author-repo/tsconfig.json": "{
   "extends": "@internal/tsconfig/base.json",
   "include": ["src", "tests", "scripts", "rollup.config.js"]
 }
 ",
-  "packages/public-npm/vitest.config.ts": "import baseConfig from '@internal/vitest-config'; export default baseConfig;",
+  "packages/with-author-repo/vitest.config.ts": "import baseConfig from '@internal/vitest-config'; export default baseConfig;",
 }
