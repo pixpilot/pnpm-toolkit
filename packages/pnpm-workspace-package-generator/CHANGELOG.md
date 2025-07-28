@@ -1,3 +1,11 @@
+# [@pixpilot/pnpm-workspace-package-generator-v1.1.1](https://github.com/pixpilot/pnpm-toolkit/compare/@pixpilot/pnpm-workspace-package-generator-v1.1.0...@pixpilot/pnpm-workspace-package-generator-v1.1.1) (2025-07-28)
+
+
+### Bug Fixes
+
+* **package-generator:** add @semantic-release/exec dependency ([cedbcc0](https://github.com/pixpilot/pnpm-toolkit/commit/cedbcc078f74b21a002ad64b341f6903ae98d139))
+* **package-generator:** update template handling for index and main files ([7ebb70a](https://github.com/pixpilot/pnpm-toolkit/commit/7ebb70adf8723c6766251d147d5bbf7dee909514))
+
 # [@pixpilot/pnpm-workspace-package-generator-v1.1.0](https://github.com/pixpilot/pnpm-toolkit/compare/@pixpilot/pnpm-workspace-package-generator-v1.0.0...@pixpilot/pnpm-workspace-package-generator-v1.1.0) (2025-07-25)
 
 
