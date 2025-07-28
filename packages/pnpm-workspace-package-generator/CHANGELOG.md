@@ -1,3 +1,10 @@
+# [@pixpilot/pnpm-workspace-package-generator-v1.3.0](https://github.com/pixpilot/pnpm-toolkit/compare/@pixpilot/pnpm-workspace-package-generator-v1.2.0...@pixpilot/pnpm-workspace-package-generator-v1.3.0) (2025-07-28)
+
+
+### Features
+
+* **package-generator:** enhance package generator with repository URL handling ([b00d380](https://github.com/pixpilot/pnpm-toolkit/commit/b00d380f4d5dd00ee8a0033fe70d45ec4b219a91))
+
 # [@pixpilot/pnpm-workspace-package-generator-v1.2.0](https://github.com/pixpilot/pnpm-toolkit/compare/@pixpilot/pnpm-workspace-package-generator-v1.1.1...@pixpilot/pnpm-workspace-package-generator-v1.2.0) (2025-07-28)
 
 
