@@ -72,7 +72,7 @@ export function packageGenerator(plop: NodePlopAPI, options?: GeneratorOptions) 
     ],
     actions(data) {
       // Merge options into data so getActions can use orgName
-      return getActions({ ...data, ...options } as GeneratorAnswers) as never;
+      return getActions({ ...options, ...data } as GeneratorAnswers) as never;
     },
   });
 }

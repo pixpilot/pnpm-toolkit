@@ -6,6 +6,7 @@ import type { GeneratorAnswers } from './types/common';
 import { getDirName } from './utils/dir-name';
 import { getPackageName } from './utils/package-name';
 import { createJoinRelative } from './utils/path';
+import { getRepoUrl } from './utils/repo-url';
 
 const joinRel = createJoinRelative(import.meta.url);
 
@@ -22,12 +23,8 @@ export function getActions(data: GeneratorAnswers) {
       answers.dirName = getDirName(answers.name);
 
       // Set repoUrl if baseRepoUrl or baseRepo is provided
-      if (answers.baseRepoUrl) {
-        // Ensure baseRepo(Url) ends with a slash
-        const repoBase = answers.baseRepoUrl ?? '';
-        const repoBaseWithSlash = repoBase.endsWith('/') ? repoBase : `${repoBase}/`;
-        const repoName = answers.dirName ?? '';
-        answers.repoUrl = `${repoBaseWithSlash}${repoName}.git`;
+      if (data.baseRepoUrl) {
+        answers.repoUrl = getRepoUrl(data.baseRepoUrl, answers.dirName);
       }
 
       return 'Config sanitized';

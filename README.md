@@ -1,9 +1,9 @@
 # pnpm-turbo-monorepo-template
 
+A modern TypeScript monorepo template for npm packages, managed with pnpm and TurboRepo.
+
 > ⚠️ **Opinionated Template:**
 > This monorepo template is designed for our internal standards and workflows. Feel free to use, adapt, and extend it for your own projects.
-
-A modern TypeScript monorepo template for npm packages, managed with pnpm and TurboRepo.
 
 ## ✨ Features
 
@@ -30,32 +30,7 @@ A modern TypeScript monorepo template for npm packages, managed with pnpm and Tu
 
 ## 📦 Packages
 
-- `packages/utils` – Example utility package
-
-### 🛠️ GeneratorOptions
-
-The package generator in this monorepo uses the following TypeScript interface to customize the creation of new packages:
-
-```typescript
-export interface GeneratorOptions {
-  orgName?: string; // Organization or scope name for generated packages (e.g., "@your-org")
-  author?: string; // Author name for the generated package's package.json
-  /**
-   * The base URL for the repository hosting service (e.g., 'https://github.com/example/').
-   * The package name (or directory name) will be appended to this base URL, followed by '.git',
-   * to form the full repository URL for the generated package.
-   * Example: If baseRepoUrl is 'https://github.com/example/' and the package name is 'my-lib',
-   * the resulting repository URL will be 'https://github.com/example/my-lib.git'.
-   */
-  baseRepoUrl?: string;
-}
-```
-
-These options can be provided when running the generator to control naming, authorship, and repository configuration for new packages.
-
-## 🚢 Releasing Packages (Independent Versioning)
-
-This monorepo uses [semantic-release-monorepo](https://github.com/pmowrer/semantic-release-monorepo) for fully automated, independent versioning and publishing of each package.
+- [`packages/pnpm-workspace-package-generator`](packages/pnpm-workspace-package-generator/README.md)
 
 ### 📝 How to Release
 
