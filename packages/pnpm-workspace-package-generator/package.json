@@ -45,6 +45,7 @@
     "@internal/tsconfig": "workspace:*",
     "@internal/vitest-config": "workspace:*",
     "@pixpilot/dev-config": "catalog:dev",
+    "@semantic-release/exec": "^7.1.0",
     "@types/node": "catalog:dev",
     "@web/rollup-plugin-copy": "^0.5.1",
     "rollup": "catalog:dev"
