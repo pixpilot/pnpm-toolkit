@@ -46,13 +46,13 @@ export default [...baseConfig];
   ],
   "private": true,
   "scripts": {
-    "test": "vitest run",
     "prepublishOnly": "pnpm run clean && pnpm run build",
     "clean": "rimraf dist",
     "build": "pnpm run clean && rollup -c",
+    "test": "vitest",
+    "test:watch": "vitest --watch",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage",
-    "test:run": "vitest run",
     "typecheck": "tsc --noEmit",
     "lint": "eslint",
     "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ../../.prettierignore"
@@ -96,5 +96,8 @@ describe('name', () => { it('should be defined', () => { expect(name).toBeDefine
   "include": ["src", "tests", "scripts", "rollup.config.js"]
 }
 ",
-  "custom/scoped-pkg/vitest.config.ts": "import baseConfig from '@internal/vitest-config'; export default baseConfig;",
+  "custom/scoped-pkg/vitest.config.ts": "import baseConfig from '@internal/vitest-config';
+
+export default baseConfig;
+",
 }
