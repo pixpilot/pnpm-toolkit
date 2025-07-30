@@ -11,6 +11,7 @@ export default baseConfig;
   "name": "@internal/empty-license",
   "type": "module",
   "version": "0.0.0",
+  "private": true,
   "packageManager": "pnpm@10.12.2",
   "author": "",
   "license": "MIT",
@@ -28,7 +29,6 @@ export default baseConfig;
   "files": [
     "dist"
   ],
-  "private": true,
   "scripts": {
     "prepublishOnly": "pnpm run clean && pnpm run build",
     "clean": "rimraf dist",

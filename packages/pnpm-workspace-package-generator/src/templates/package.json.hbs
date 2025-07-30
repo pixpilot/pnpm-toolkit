@@ -2,6 +2,9 @@
   "name": "{{ name }}",
   "type": "module",
   "version": "0.0.0",
+  {{#unless isNpmPackage}}
+  "private": true,
+  {{/unless}}
   "packageManager": "pnpm@10.12.2",
   "author": "{{{ author }}}",
   "license": "MIT",
@@ -29,8 +32,6 @@
   "publishConfig": {
     "access": "{{#if isPublicPackage}}public{{else}}restricted{{/if}}"
   },
-  {{else}}
-  "private": true,
   {{/if}}
   "scripts": {
     "prepublishOnly": "pnpm run clean && pnpm run build",
