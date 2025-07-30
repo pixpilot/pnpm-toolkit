@@ -1,3 +1,10 @@
+# [@pixpilot/pnpm-workspace-package-generator-v1.5.0](https://github.com/pixpilot/pnpm-toolkit/compare/@pixpilot/pnpm-workspace-package-generator-v1.4.0...@pixpilot/pnpm-workspace-package-generator-v1.5.0) (2025-07-30)
+
+
+### Features
+
+* **package-generator:** update ESLint configuration to TypeScript ([d65b65b](https://github.com/pixpilot/pnpm-toolkit/commit/d65b65b2501a083d5fed203c8e494177be30792a))
+
 # [@pixpilot/pnpm-workspace-package-generator-v1.4.0](https://github.com/pixpilot/pnpm-toolkit/compare/@pixpilot/pnpm-workspace-package-generator-v1.3.0...@pixpilot/pnpm-workspace-package-generator-v1.4.0) (2025-07-29)
 
 
