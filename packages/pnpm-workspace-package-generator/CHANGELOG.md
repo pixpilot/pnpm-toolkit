@@ -1,3 +1,11 @@
+# [@pixpilot/pnpm-workspace-package-generator-v1.5.1](https://github.com/pixpilot/pnpm-toolkit/compare/@pixpilot/pnpm-workspace-package-generator-v1.5.0...@pixpilot/pnpm-workspace-package-generator-v1.5.1) (2025-07-30)
+
+
+### Bug Fixes
+
+* **actions:** fix author field in package.json ([f1148be](https://github.com/pixpilot/pnpm-toolkit/commit/f1148be992e8be0249b2bd6f11fce4abab52e7f5))
+* **package-generator:** update author field format in package.json template ([f9fb08e](https://github.com/pixpilot/pnpm-toolkit/commit/f9fb08ef4cd75942a875fbd8ae8fa02b013dcd24))
+
 # [@pixpilot/pnpm-workspace-package-generator-v1.5.0](https://github.com/pixpilot/pnpm-toolkit/compare/@pixpilot/pnpm-workspace-package-generator-v1.4.0...@pixpilot/pnpm-workspace-package-generator-v1.5.0) (2025-07-30)
 
 
