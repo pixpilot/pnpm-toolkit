@@ -3,10 +3,9 @@
   "packages/empty-license/README.md": "# @internal/empty-license
 
 ## Usage Add usage instructions here.",
-  "packages/empty-license/eslint.config.js": "import baseConfig from '@internal/eslint-config/base';
+  "packages/empty-license/eslint.config.ts": "import baseConfig from '@internal/eslint-config/base';
 
-/** @type {import('typescript-eslint').Config} */
-export default [...baseConfig];
+export default baseConfig;
 ",
   "packages/empty-license/package.json": "{
   "name": "@internal/empty-license",

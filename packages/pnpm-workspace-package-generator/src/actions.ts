@@ -31,8 +31,8 @@ export function getActions(data: GeneratorAnswers) {
     },
     {
       type: 'add',
-      path: '{{ workspace }}/{{ dirName }}/eslint.config.js',
-      templateFile: joinRel('templates', 'eslint.config.js.hbs'),
+      path: '{{ workspace }}/{{ dirName }}/eslint.config.ts',
+      templateFile: joinRel('templates', 'eslint.config.ts.hbs'),
     },
     {
       type: 'add',
