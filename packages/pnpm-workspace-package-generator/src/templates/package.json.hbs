@@ -1,21 +1,17 @@
 {
   "name": "{{ name }}",
+  "type": "module",
   "version": "0.0.0",
-  "keywords": [],
-  "license": "MIT",
-  {{#if author}}
+  "packageManager": "pnpm@10.12.2",
   "author": "{{{ author }}}",
-  {{/if}}
+  "license": "MIT",
   {{#if repoUrl}}
   "repository": {
     "type": "git",
     "url": "{{ repoUrl }}"
   },
   {{/if}}
-  "type": "module",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "keywords": [],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -23,6 +19,9 @@
       "require": "./dist/index.cjs"
     }
   },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -54,6 +53,5 @@
     "@pixpilot/dev-config": "catalog:dev",
     "@types/node": "catalog:dev",
     "rollup": "catalog:dev"
-  },
-  "packageManager": "pnpm@10.12.2"
+  }
 }

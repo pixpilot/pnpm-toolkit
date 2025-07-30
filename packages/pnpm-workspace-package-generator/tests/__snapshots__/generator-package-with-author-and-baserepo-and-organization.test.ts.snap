@@ -30,18 +30,16 @@ export default baseConfig;
 ",
   "packages/with-author-repo/package.json": "{
   "name": "@test-org/with-author-repo",
+  "type": "module",
   "version": "0.0.0",
-  "keywords": [],
-  "license": "MIT",
+  "packageManager": "pnpm@10.12.2",
   "author": "Test Author <test@exaple.com> (https://github.com/exaple/)",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/example/with-author-repo.git"
   },
-  "type": "module",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "keywords": [],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -49,6 +47,9 @@ export default baseConfig;
       "require": "./dist/index.cjs"
     }
   },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -76,8 +77,7 @@ export default baseConfig;
     "@pixpilot/dev-config": "catalog:dev",
     "@types/node": "catalog:dev",
     "rollup": "catalog:dev"
-  },
-  "packageManager": "pnpm@10.12.2"
+  }
 }
 ",
   "packages/with-author-repo/release.config.js": "import config from '@internal/semantic-release';
