@@ -22,6 +22,10 @@ export function getActions(data: GeneratorAnswers) {
       }
       answers.dirName = getDirName(answers.name);
 
+      if (data.author) {
+        answers.author = data.author;
+      }
+
       // Set repoUrl if baseRepoUrl or baseRepo is provided
       if (data.baseRepoUrl) {
         answers.repoUrl = getRepoUrl(data.baseRepoUrl, answers.dirName);

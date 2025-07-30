@@ -1,9 +1,11 @@
 import packageGenerator from '../../packages/pnpm-workspace-package-generator/dist/index';
 
-export default function generator(plop: unknown) {
-  packageGenerator(plop as never, {
-    author: 'm.doaie',
+import type { NodePlopAPI } from 'plop';
+
+module.exports = function generator(plop: NodePlopAPI) {
+  packageGenerator(plop, {
+    author: 'm.doaie <m.doaie@hotmail.com>',
     baseRepoUrl: 'https://github.com/pixpilot/pnpm-toolkit',
     orgName: 'pixpilot',
   });
-}
+};
