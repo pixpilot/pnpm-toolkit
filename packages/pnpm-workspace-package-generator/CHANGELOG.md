@@ -1,3 +1,10 @@
+# [@pixpilot/pnpm-workspace-package-generator-v1.5.3](https://github.com/pixpilot/pnpm-toolkit/compare/@pixpilot/pnpm-workspace-package-generator-v1.5.2...@pixpilot/pnpm-workspace-package-generator-v1.5.3) (2025-07-30)
+
+
+### Bug Fixes
+
+* **package-generator:** sort package.json template structure ([31a9a68](https://github.com/pixpilot/pnpm-toolkit/commit/31a9a68a9f590c035e1aeb8507655863bbc8ab2a))
+
 # [@pixpilot/pnpm-workspace-package-generator-v1.5.2](https://github.com/pixpilot/pnpm-toolkit/compare/@pixpilot/pnpm-workspace-package-generator-v1.5.1...@pixpilot/pnpm-workspace-package-generator-v1.5.2) (2025-07-30)
 
 
