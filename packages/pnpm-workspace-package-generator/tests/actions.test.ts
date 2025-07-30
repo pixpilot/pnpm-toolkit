@@ -13,6 +13,7 @@ const cases: { name: string; answers: GeneratorAnswers }[] = [
       deps: '',
       isNpmPackage: false,
       licenseType: 'none',
+      dirName: 'simple-package',
     },
   },
   {
@@ -24,6 +25,7 @@ const cases: { name: string; answers: GeneratorAnswers }[] = [
       isNpmPackage: true,
       isPublicPackage: true,
       licenseType: 'mit',
+      dirName: 'simple-package',
     },
   },
   {
@@ -34,6 +36,7 @@ const cases: { name: string; answers: GeneratorAnswers }[] = [
       deps: '',
       isNpmPackage: false,
       licenseType: 'gpl-3.0',
+      dirName: 'simple-package',
     },
   },
   {
@@ -45,6 +48,7 @@ const cases: { name: string; answers: GeneratorAnswers }[] = [
       isNpmPackage: true,
       isPublicPackage: false,
       licenseType: 'bsd-3-clause',
+      dirName: 'simple-package',
     },
   },
   {
@@ -55,6 +59,7 @@ const cases: { name: string; answers: GeneratorAnswers }[] = [
       deps: '',
       isNpmPackage: false,
       licenseType: 'empty',
+      dirName: 'simple-package',
     },
   },
   {
@@ -69,6 +74,7 @@ const cases: { name: string; answers: GeneratorAnswers }[] = [
       author: 'Test Author <test@exaple.com> (https://github.com/exaple/)',
       orgName: 'test-org',
       baseRepoUrl: 'https://github.com/example/',
+      dirName: 'simple-package',
     },
   },
 ];

@@ -1,5 +1,5 @@
 {
-  "packages/@internal/empty-license/LICENSE": "",
+  "packages/empty-license/LICENSE": "",
   "packages/empty-license/README.md": "# @internal/empty-license
 
 ## Usage Add usage instructions here.",

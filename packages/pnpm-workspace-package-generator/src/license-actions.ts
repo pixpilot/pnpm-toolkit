@@ -4,7 +4,7 @@ import { createJoinRelative } from './utils/path';
 
 interface LicenseActionInput {
   workspace: string;
-  name: string;
+  dirName: string;
   licenseType?: string;
 }
 
@@ -19,7 +19,7 @@ export function getLicenseActions(data: LicenseActionInput) {
       return [
         {
           type: 'add',
-          path: `{{ workspace }}/{{ name }}/LICENSE`,
+          path: `{{ workspace }}/{{ dirName }}/LICENSE`,
           templateFile: joinRel('templates', 'LICENSE_EMPTY'),
         },
       ];
@@ -27,7 +27,7 @@ export function getLicenseActions(data: LicenseActionInput) {
       return [
         {
           type: 'add',
-          path: `{{ workspace }}/{{ name }}/LICENSE`,
+          path: `{{ workspace }}/{{ dirName }}/LICENSE`,
           templateFile: joinRel('templates', 'LICENSE_MIT'),
         },
       ];
@@ -35,7 +35,7 @@ export function getLicenseActions(data: LicenseActionInput) {
       return [
         {
           type: 'add',
-          path: `{{ workspace }}/{{ name }}/LICENSE`,
+          path: `{{ workspace }}/{{ dirName }}/LICENSE`,
           templateFile: joinRel('templates', 'LICENSE_APACHE_2_0'),
         },
       ];
@@ -43,7 +43,7 @@ export function getLicenseActions(data: LicenseActionInput) {
       return [
         {
           type: 'add',
-          path: `{{ workspace }}/{{ name }}/LICENSE`,
+          path: `{{ workspace }}/{{ dirName }}/LICENSE`,
           templateFile: joinRel('templates', 'LICENSE_GPL_3_0'),
         },
       ];
@@ -51,7 +51,7 @@ export function getLicenseActions(data: LicenseActionInput) {
       return [
         {
           type: 'add',
-          path: `{{ workspace }}/{{ name }}/LICENSE`,
+          path: `{{ workspace }}/{{ dirName }}/LICENSE`,
           templateFile: joinRel('templates', 'LICENSE_BSD_3_CLAUSE'),
         },
       ];
@@ -59,7 +59,7 @@ export function getLicenseActions(data: LicenseActionInput) {
       return [
         {
           type: 'add',
-          path: `{{ workspace }}/{{ name }}/LICENSE`,
+          path: `{{ workspace }}/{{ dirName }}/LICENSE`,
           templateFile: joinRel('templates', 'LICENSE_MPL_2_0'),
         },
       ];
@@ -67,7 +67,7 @@ export function getLicenseActions(data: LicenseActionInput) {
       return [
         {
           type: 'add',
-          path: `{{ workspace }}/{{ name }}/LICENSE`,
+          path: `{{ workspace }}/{{ dirName }}/LICENSE`,
           templateFile: joinRel('templates', 'LICENSE_LGPL_3_0'),
         },
       ];

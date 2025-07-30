@@ -5,7 +5,7 @@ export interface GeneratorAnswers extends GeneratorOptions {
   isNpmPackage?: boolean;
   isPublicPackage?: boolean;
   licenseType?: string;
-  dirName?: string;
+  dirName: string;
   repoUrl?: string;
 }
 
