@@ -1,3 +1,10 @@
+# [@pixpilot/pnpm-workspace-package-generator-v1.5.4](https://github.com/pixpilot/pnpm-toolkit/compare/@pixpilot/pnpm-workspace-package-generator-v1.5.3...@pixpilot/pnpm-workspace-package-generator-v1.5.4) (2025-07-30)
+
+
+### Bug Fixes
+
+* **package-generator:** fis package template structure ([c073db7](https://github.com/pixpilot/pnpm-toolkit/commit/c073db7debfd56cd90c37cf8450eec6bb2ed0480))
+
 # [@pixpilot/pnpm-workspace-package-generator-v1.5.3](https://github.com/pixpilot/pnpm-toolkit/compare/@pixpilot/pnpm-workspace-package-generator-v1.5.2...@pixpilot/pnpm-workspace-package-generator-v1.5.3) (2025-07-30)
 
 
