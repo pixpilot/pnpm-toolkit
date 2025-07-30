@@ -66,7 +66,7 @@ const cases: { name: string; answers: GeneratorAnswers }[] = [
       isNpmPackage: true,
       isPublicPackage: true,
       licenseType: 'mit',
-      author: 'Test Author',
+      author: 'Test Author <test@exaple.com> (https://github.com/exaple/)',
       orgName: 'test-org',
       baseRepoUrl: 'https://github.com/example/',
     },
