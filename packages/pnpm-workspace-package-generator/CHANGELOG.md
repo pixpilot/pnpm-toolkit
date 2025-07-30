@@ -1,3 +1,10 @@
+# [@pixpilot/pnpm-workspace-package-generator-v1.5.2](https://github.com/pixpilot/pnpm-toolkit/compare/@pixpilot/pnpm-workspace-package-generator-v1.5.1...@pixpilot/pnpm-workspace-package-generator-v1.5.2) (2025-07-30)
+
+
+### Bug Fixes
+
+* **license-actions:** fix licence path ([ca4aed4](https://github.com/pixpilot/pnpm-toolkit/commit/ca4aed4717a0b44b4b70ddc75046fe1406967284))
+
 # [@pixpilot/pnpm-workspace-package-generator-v1.5.1](https://github.com/pixpilot/pnpm-toolkit/compare/@pixpilot/pnpm-workspace-package-generator-v1.5.0...@pixpilot/pnpm-workspace-package-generator-v1.5.1) (2025-07-30)
 
 
