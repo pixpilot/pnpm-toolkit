@@ -1,3 +1,10 @@
+# [@pixpilot/pnpm-workspace-package-generator-v1.4.0](https://github.com/pixpilot/pnpm-toolkit/compare/@pixpilot/pnpm-workspace-package-generator-v1.3.0...@pixpilot/pnpm-workspace-package-generator-v1.4.0) (2025-07-29)
+
+
+### Features
+
+* **package-generator:** update test scripts and format vitest config ([aae578d](https://github.com/pixpilot/pnpm-toolkit/commit/aae578dd609c1dca1a9bc23bd559ef99250856a9))
+
 # [@pixpilot/pnpm-workspace-package-generator-v1.3.0](https://github.com/pixpilot/pnpm-toolkit/compare/@pixpilot/pnpm-workspace-package-generator-v1.2.0...@pixpilot/pnpm-workspace-package-generator-v1.3.0) (2025-07-28)
 
 
