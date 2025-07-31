@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterAll } from 'vitest';
 
 import { packageGenerator } from '../src/package-generator';
-import type { GeneratorOptions } from '../src/types/common';
+import type { GeneratorOptions } from '../src/types';
 
 // Helper to create a mock plop API
 function createMockPlop() {

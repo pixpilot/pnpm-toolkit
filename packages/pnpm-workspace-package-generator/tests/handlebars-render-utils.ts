@@ -4,7 +4,7 @@ import { resolve } from 'path';
 import Handlebars from 'handlebars';
 
 import { getActions } from '../src/actions';
-import type { GeneratorAnswers } from '../src/types/common';
+import type { GeneratorAnswers } from '../src/types';
 
 function renderTemplate(templatePath: string, context: Record<string, any>) {
   const templateSource = readFileSync(resolve(__dirname, '../src', templatePath), 'utf8');

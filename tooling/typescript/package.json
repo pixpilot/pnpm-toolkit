@@ -2,11 +2,12 @@
   "name": "@internal/tsconfig",
   "private": true,
   "version": "0.1.0",
+  "type": "module",
   "files": [
     "*.json"
   ],
   "scripts": {
-    "lint": "eslint '**/*.{js,ts,json}' || echo 'No files to lint'",
+    "lint": "eslint --ext .js,.ts . || echo 'No files to lint'",
     "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ../../.prettierignore"
   },
   "devDependencies": {

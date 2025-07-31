@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
-import type { GeneratorAnswers } from '../src/types/common';
+import type { GeneratorAnswers } from '../src/types';
 
 import { renderActionsWithHandlebars } from './handlebars-render-utils';
 

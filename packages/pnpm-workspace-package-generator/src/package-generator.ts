@@ -2,7 +2,7 @@ import { kebabCase } from 'change-case';
 import type { NodePlopAPI } from 'plop';
 
 import { getActions } from './actions';
-import type { GeneratorAnswers, GeneratorOptions } from './types/common';
+import type { GeneratorAnswers, GeneratorOptions } from './types';
 import { getWorkspaceFolders } from './utils/folder';
 
 export function packageGenerator(plop: NodePlopAPI, options?: GeneratorOptions) {

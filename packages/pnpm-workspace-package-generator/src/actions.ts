@@ -2,7 +2,7 @@ import { execSync } from 'node:child_process';
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 
 import { getLicenseActions } from './license-actions';
-import type { GeneratorAnswers } from './types/common';
+import type { GeneratorAnswers } from './types';
 import { getDirName } from './utils/dir-name';
 import { getPackageName } from './utils/package-name';
 import { createJoinRelative } from './utils/path';
