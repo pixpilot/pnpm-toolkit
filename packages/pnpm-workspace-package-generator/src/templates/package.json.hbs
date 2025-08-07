@@ -15,22 +15,23 @@
   },
   {{/if}}
   "keywords": [],
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    }
-  },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "exports": "./src/index.ts",
   "files": [
     "dist"
   ],
   {{#if isNpmPackage}}
   "publishConfig": {
-    "access": "{{#if isPublicPackage}}public{{else}}restricted{{/if}}"
+    "access": "{{#if isPublicPackage}}public{{else}}restricted{{/if}}",
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js",
+        "require": "./dist/index.cjs"
+      }
+    },
+    "main": "./dist/index.cjs",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts"
   },
   {{/if}}
   "scripts": {
