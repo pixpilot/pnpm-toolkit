@@ -1,7 +1,7 @@
 {
   "packages/private-npm/LICENSE": "BSD 3-Clause License
 
-Copyright (c) , 
+Copyright (c) ,
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -78,7 +78,7 @@ export default baseConfig;
     "@internal/tsconfig": "workspace:*",
     "@internal/vitest-config": "workspace:*",
     "@pixpilot/dev-config": "catalog:dev",
-    "@types/node": "catalog:dev",
+    "@types/node": "catalog:deiv",
     "rollup": "catalog:dev"
   }
 }
