@@ -85,15 +85,6 @@ export function getActions(data: GeneratorAnswers) {
     },
   ];
 
-  // Conditionally add release.config.js only if isNpmPackage is true
-  if (data.isNpmPackage === true) {
-    actions.push({
-      type: 'add',
-      path: '{{ workspace }}/{{ dirName }}/release.config.js',
-      templateFile: joinRel('templates', 'release.config.js.hbs'),
-    });
-  }
-
   // Add LICENSE actions from external module
   actions.push(...getLicenseActions(data));
 
@@ -116,13 +107,6 @@ export function getActions(data: GeneratorAnswers) {
       for (const dep of deps) {
         (pkg['dependencies'] as Record<string, string>)[dep] = '*';
       }
-    }
-    // Add @internal/semantic-release to devDependencies if isNpmPackage is true
-    if (answers.isNpmPackage === true) {
-      if (!pkg['devDependencies'] || typeof pkg['devDependencies'] !== 'object')
-        pkg['devDependencies'] = {};
-      (pkg['devDependencies'] as Record<string, string>)['@internal/semantic-release'] =
-        'workspace:*';
     }
 
     // Sort dependencies and devDependencies alphabetically

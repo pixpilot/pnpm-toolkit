@@ -81,12 +81,6 @@ export default baseConfig;
   }
 }
 ",
-  "packages/with-author-repo/release.config.js": "import config from '@internal/semantic-release';
-
-export default {
-  ...config,
-};
-",
   "packages/with-author-repo/rollup.config.js": "import rollupConfig from '@internal/rollup-config';
 
 export default rollupConfig;
