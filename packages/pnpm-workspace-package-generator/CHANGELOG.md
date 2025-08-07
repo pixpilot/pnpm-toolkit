@@ -1,5 +1,11 @@
 # [@pixpilot/pnpm-workspace-package-generator-v1.5.4](https://github.com/pixpilot/pnpm-toolkit/compare/@pixpilot/pnpm-workspace-package-generator-v1.5.3...@pixpilot/pnpm-workspace-package-generator-v1.5.4) (2025-07-30)
 
+## 1.5.7
+
+### Patch Changes
+
+- correct typo in package dependency for `@types/node`
+
 ## 1.5.6
 
 ### Patch Changes
