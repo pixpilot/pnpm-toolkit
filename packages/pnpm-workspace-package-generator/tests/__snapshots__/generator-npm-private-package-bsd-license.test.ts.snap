@@ -78,7 +78,7 @@ export default baseConfig;
     "@internal/tsconfig": "workspace:*",
     "@internal/vitest-config": "workspace:*",
     "@pixpilot/dev-config": "catalog:dev",
-    "@types/node": "catalog:deiv",
+    "@types/node": "catalog:dev",
     "rollup": "catalog:dev"
   }
 }
