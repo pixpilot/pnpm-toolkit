@@ -41,7 +41,7 @@ jobs:
 #     uses: pixpilot/dev-config/.github/workflows/codeql-issue-maker.yml@main
 #     with:
 #       language: 'javascript' # or your target language
-#       exclude: 'tests/**,**/__tests__/**,**/*.test.ts,*.spec.ts,**/*.min.js,dist/**,build/**,coverage/**,*.md,*.txt,*.pdf,*.png,*.jpg,*.ico'
+#       exclude: 'test/**,**/__tests__/**,**/*.test.ts,*.spec.ts,**/*.min.js,dist/**,build/**,coverage/**,*.md,*.txt,*.pdf,*.png,*.jpg,*.ico'
 #     secrets:
 #       token: ${{ secrets.GITHUB_TOKEN }}
 

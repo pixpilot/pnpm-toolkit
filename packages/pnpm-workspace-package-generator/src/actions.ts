@@ -80,8 +80,8 @@ export function getActions(data: GeneratorAnswers) {
     },
     {
       type: 'add',
-      path: '{{ workspace }}/{{ dirName }}/tests/main.test.ts',
-      templateFile: joinRel('templates', 'tests', 'main.test.ts.hbs'),
+      path: '{{ workspace }}/{{ dirName }}/test/main.test.ts',
+      templateFile: joinRel('templates', 'test', 'main.test.ts.hbs'),
     },
   ];
 

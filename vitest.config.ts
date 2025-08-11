@@ -7,10 +7,10 @@ export default defineConfig({
     ...vitestConfig.test,
     globals: true,
     ui: false,
-    // Ensure all test files in packages/**/tests are included
+    // Ensure all test files in packages/**/test are included
     include: [
-      'tests/**/*.test.{ts,js,tsx,jsx}',
-      'packages/**/tests/**/*.test.{ts,js,tsx,jsx}',
+      'test/**/*.test.{ts,js,tsx,jsx}',
+      'packages/**/test/**/*.test.{ts,js,tsx,jsx}',
     ],
   },
 });

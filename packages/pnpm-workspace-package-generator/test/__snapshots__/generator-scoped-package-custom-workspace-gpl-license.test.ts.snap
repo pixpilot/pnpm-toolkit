@@ -2,7 +2,7 @@
   "custom/scoped-pkg/LICENSE": "GNU GENERAL PUBLIC LICENSE
 Version 3, 29 June 2007
 
-Copyright (c)  
+Copyright (c)
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -67,7 +67,7 @@ export default rollupConfig;
 ",
   "custom/scoped-pkg/src/index.ts": "export * from './main';",
   "custom/scoped-pkg/src/main.ts": "export const name = '@scope/scoped-pkg';",
-  "custom/scoped-pkg/tests/main.test.ts": "import { describe, it, expect } from 'vitest'; import { name } from '../src';
+  "custom/scoped-pkg/test/main.test.ts": "import { describe, it, expect } from 'vitest'; import { name } from '../src';
 describe('name', () => { it('should be defined', () => { expect(name).toBeDefined(); });
 });",
   "custom/scoped-pkg/tsconfig.build.json": "{
@@ -79,12 +79,12 @@ describe('name', () => { it('should be defined', () => { expect(name).toBeDefine
     "rootDir": "./src"
   },
   "include": ["src"],
-  "exclude": ["tests/**/*.spec.ts", "tests/**/*.test.ts"]
+  "exclude": ["test/**/*.spec.ts", "test/**/*.test.ts"]
 }
 ",
   "custom/scoped-pkg/tsconfig.json": "{
   "extends": "@internal/tsconfig/base.json",
-  "include": ["src", "tests", "scripts", "rollup.config.js"]
+  "include": ["src", "test", "scripts", "rollup.config.js"]
 }
 ",
   "custom/scoped-pkg/vitest.config.ts": "import baseConfig from '@internal/vitest-config';

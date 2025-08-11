@@ -1,14 +1,13 @@
 {
-  "packages/empty-license/LICENSE": "",
-  "packages/empty-license/README.md": "# @internal/empty-license
+  "packages/simple-package/README.md": "# @internal/simple-package
 
 ## Usage Add usage instructions here.",
-  "packages/empty-license/eslint.config.ts": "import baseConfig from '@internal/eslint-config/base';
+  "packages/simple-package/eslint.config.ts": "import baseConfig from '@internal/eslint-config/base';
 
 export default baseConfig;
 ",
-  "packages/empty-license/package.json": "{
-  "name": "@internal/empty-license",
+  "packages/simple-package/package.json": "{
+  "name": "@internal/simple-package",
   "type": "module",
   "version": "0.0.0",
   "private": true,
@@ -44,16 +43,16 @@ export default baseConfig;
   }
 }
 ",
-  "packages/empty-license/rollup.config.js": "import rollupConfig from '@internal/rollup-config';
+  "packages/simple-package/rollup.config.js": "import rollupConfig from '@internal/rollup-config';
 
 export default rollupConfig;
 ",
-  "packages/empty-license/src/index.ts": "export * from './main';",
-  "packages/empty-license/src/main.ts": "export const name = '@internal/empty-license';",
-  "packages/empty-license/tests/main.test.ts": "import { describe, it, expect } from 'vitest'; import { name } from '../src';
+  "packages/simple-package/src/index.ts": "export * from './main';",
+  "packages/simple-package/src/main.ts": "export const name = '@internal/simple-package';",
+  "packages/simple-package/test/main.test.ts": "import { describe, it, expect } from 'vitest'; import { name } from '../src';
 describe('name', () => { it('should be defined', () => { expect(name).toBeDefined(); });
 });",
-  "packages/empty-license/tsconfig.build.json": "{
+  "packages/simple-package/tsconfig.build.json": "{
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "declaration": true,
@@ -62,15 +61,15 @@ describe('name', () => { it('should be defined', () => { expect(name).toBeDefine
     "rootDir": "./src"
   },
   "include": ["src"],
-  "exclude": ["tests/**/*.spec.ts", "tests/**/*.test.ts"]
+  "exclude": ["test/**/*.spec.ts", "test/**/*.test.ts"]
 }
 ",
-  "packages/empty-license/tsconfig.json": "{
+  "packages/simple-package/tsconfig.json": "{
   "extends": "@internal/tsconfig/base.json",
-  "include": ["src", "tests", "scripts", "rollup.config.js"]
+  "include": ["src", "test", "scripts", "rollup.config.js"]
 }
 ",
-  "packages/empty-license/vitest.config.ts": "import baseConfig from '@internal/vitest-config';
+  "packages/simple-package/vitest.config.ts": "import baseConfig from '@internal/vitest-config';
 
 export default baseConfig;
 ",

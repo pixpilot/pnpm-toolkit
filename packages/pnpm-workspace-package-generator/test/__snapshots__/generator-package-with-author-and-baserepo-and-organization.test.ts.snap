@@ -87,7 +87,7 @@ export default rollupConfig;
 ",
   "packages/with-author-repo/src/index.ts": "export * from './main';",
   "packages/with-author-repo/src/main.ts": "export const name = '@test-org/with-author-repo';",
-  "packages/with-author-repo/tests/main.test.ts": "import { describe, it, expect } from 'vitest'; import { name } from '../src';
+  "packages/with-author-repo/test/main.test.ts": "import { describe, it, expect } from 'vitest'; import { name } from '../src';
 describe('name', () => { it('should be defined', () => { expect(name).toBeDefined(); });
 });",
   "packages/with-author-repo/tsconfig.build.json": "{
@@ -99,12 +99,12 @@ describe('name', () => { it('should be defined', () => { expect(name).toBeDefine
     "rootDir": "./src"
   },
   "include": ["src"],
-  "exclude": ["tests/**/*.spec.ts", "tests/**/*.test.ts"]
+  "exclude": ["test/**/*.spec.ts", "test/**/*.test.ts"]
 }
 ",
   "packages/with-author-repo/tsconfig.json": "{
   "extends": "@internal/tsconfig/base.json",
-  "include": ["src", "tests", "scripts", "rollup.config.js"]
+  "include": ["src", "test", "scripts", "rollup.config.js"]
 }
 ",
   "packages/with-author-repo/vitest.config.ts": "import baseConfig from '@internal/vitest-config';
