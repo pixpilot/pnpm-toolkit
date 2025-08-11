@@ -37,7 +37,8 @@ export default baseConfig;
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/example/with-author-repo.git"
+    "url": "https://github.com/foo/bar.git",
+    "directory": "packages/with-author-repo"
   },
   "keywords": [],
   "exports": "./src/index.ts",

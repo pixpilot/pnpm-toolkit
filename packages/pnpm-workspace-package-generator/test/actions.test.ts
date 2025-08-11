@@ -73,7 +73,7 @@ const cases: { name: string; answers: GeneratorAnswers }[] = [
       licenseType: 'mit',
       author: 'Test Author <test@exaple.com> (https://github.com/exaple/)',
       orgName: 'test-org',
-      baseRepoUrl: 'https://github.com/example/',
+      baseRepoUrl: 'https://github.com/foo/bar.git',
       dirName: 'simple-package',
     },
   },

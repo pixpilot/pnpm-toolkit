@@ -2,7 +2,7 @@
   "custom/scoped-pkg/LICENSE": "GNU GENERAL PUBLIC LICENSE
 Version 3, 29 June 2007
 
-Copyright (c)
+Copyright (c)  
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -32,6 +32,11 @@ export default baseConfig;
   "packageManager": "pnpm@10.12.2",
   "author": "",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pixpilot/pnpm-toolkit.git",
+    "directory": "custom/scoped-pkg"
+  },
   "keywords": [],
   "exports": "./src/index.ts",
   "files": [

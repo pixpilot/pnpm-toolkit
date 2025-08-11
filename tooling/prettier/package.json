@@ -12,11 +12,10 @@
     "lint": "eslint",
     "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ../../.prettierignore"
   },
-  "dependencies": {
-    "@pixpilot/dev-config": "catalog:dev",
-    "prettier": "catalog:dev"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "@pixpilot/dev-config": "catalog:dev",
+    "prettier": "catalog:dev",
     "@internal/tsconfig": "workspace:*",
     "@types/node": "catalog:dev",
     "typescript": "catalog:dev"

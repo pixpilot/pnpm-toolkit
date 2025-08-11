@@ -4,9 +4,9 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { getLicenseActions } from './license-actions';
 import type { GeneratorAnswers } from './types';
 import { getDirName } from './utils/dir-name';
+import { getRootRepoUrl } from './utils/get-root-repo-url';
 import { getPackageName } from './utils/package-name';
 import { createJoinRelative } from './utils/path';
-import { getRepoUrl } from './utils/repo-url';
 
 const joinRel = createJoinRelative(import.meta.url);
 
@@ -26,10 +26,15 @@ export function getActions(data: GeneratorAnswers) {
         answers.author = data.author;
       }
 
-      // Set repoUrl if baseRepoUrl or baseRepo is provided
-      if (data.baseRepoUrl) {
-        answers.repoUrl = getRepoUrl(data.baseRepoUrl, answers.dirName);
+      // Set repoUrl and repoDirectory for the template
+      if (data.repoUrl) {
+        answers.repoUrl = data.repoUrl;
+      } else if (data.baseRepoUrl) {
+        answers.repoUrl = data.baseRepoUrl;
+      } else {
+        answers.repoUrl = getRootRepoUrl() ?? '';
       }
+      answers.repoDirectory = `${answers.workspace}/${answers.dirName}`;
 
       return 'Config sanitized';
     },

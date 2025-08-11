@@ -8,9 +8,6 @@ export default defineConfig({
     globals: true,
     ui: false,
     // Ensure all test files in packages/**/test are included
-    include: [
-      'test/**/*.test.{ts,js,tsx,jsx}',
-      'packages/**/test/**/*.test.{ts,js,tsx,jsx}',
-    ],
+    include: ['test/**/*.test.{ts,js,tsx,jsx}'],
   },
 });

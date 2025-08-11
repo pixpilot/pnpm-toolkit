@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/pixpilot/plop-templates.git"
+    "url": "https://github.com/pixpilot/pnpm-toolkit.git"
   },
   "packageManager": "pnpm@10.11.1",
   "scripts": {
@@ -54,5 +54,9 @@
     "typescript": "catalog:dev",
     "vitest": "catalog:dev"
   },
-  "prettier": "@internal/prettier-config"
+  "prettier": "@internal/prettier-config",
+  "dependencies": {
+    "@manypkg/find-root": "^3.1.0",
+    "add": "^2.0.6"
+  }
 }

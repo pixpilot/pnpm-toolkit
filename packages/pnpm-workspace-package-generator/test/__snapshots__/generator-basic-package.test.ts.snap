@@ -14,6 +14,11 @@ export default baseConfig;
   "packageManager": "pnpm@10.12.2",
   "author": "",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pixpilot/pnpm-toolkit.git",
+    "directory": "packages/simple-package"
+  },
   "keywords": [],
   "exports": "./src/index.ts",
   "files": [
