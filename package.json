@@ -56,7 +56,6 @@
   },
   "prettier": "@internal/prettier-config",
   "dependencies": {
-    "@manypkg/find-root": "^3.1.0",
-    "add": "^2.0.6"
+    "@manypkg/find-root": "^3.1.0"
   }
 }
