@@ -1,5 +1,11 @@
 # [@pixpilot/pnpm-workspace-package-generator-v1.5.4](https://github.com/pixpilot/pnpm-toolkit/compare/@pixpilot/pnpm-workspace-package-generator-v1.5.3...@pixpilot/pnpm-workspace-package-generator-v1.5.4) (2025-07-30)
 
+## 1.5.9
+
+### Patch Changes
+
+- move dev-only dependencies to devDependencies in internal config packages
+
 ## 1.5.8
 
 ### Patch Changes
