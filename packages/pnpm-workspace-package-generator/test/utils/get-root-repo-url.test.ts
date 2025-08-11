@@ -1,8 +1,8 @@
-import * as fs from 'fs';
-import os from 'os';
-import * as path from 'path';
+import * as fs from 'node:fs';
+import os from 'node:os';
+import * as path from 'node:path';
 
-import { describe, it, expect, afterEach } from 'vitest';
+import { afterEach, describe, expect, it } from 'vitest';
 
 import { getRootRepoUrl } from '../../src/utils/get-root-repo-url';
 

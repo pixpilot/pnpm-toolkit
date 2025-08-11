@@ -10,10 +10,16 @@ interface LicenseActionInput {
 
 const joinRel = createJoinRelative(import.meta.url);
 
+type LicenseAction = Array<{
+  type: string;
+  path: string;
+  templateFile: string;
+}>;
+
 /**
  * Returns an array of Plop actions for LICENSE file generation based on licenseType.
  */
-export function getLicenseActions(data: LicenseActionInput) {
+export function getLicenseActions(data: LicenseActionInput): LicenseAction {
   switch (data.licenseType) {
     case 'empty':
       return [
@@ -71,6 +77,9 @@ export function getLicenseActions(data: LicenseActionInput) {
           templateFile: joinRel('templates', 'LICENSE_LGPL_3_0'),
         },
       ];
+    case undefined: {
+      return [];
+    }
     default:
       return [];
   }

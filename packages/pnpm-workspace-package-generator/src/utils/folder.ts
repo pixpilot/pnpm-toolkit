@@ -2,16 +2,19 @@ import { readFileSync } from 'node:fs';
 
 import { parse } from 'yaml';
 
+type PNPMWorkspace = {
+  packages?: string[];
+} | null;
+
 // Function to get workspace folders from pnpm-workspace.yaml
 export function getWorkspaceFolders(): string[] {
   try {
     const workspaceContent = readFileSync('pnpm-workspace.yaml', 'utf8');
 
-    let workspace: { packages?: string[] } | null = null;
+    let workspace: PNPMWorkspace = null;
     try {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      workspace = parse(workspaceContent);
-    } catch (_error) {
+      workspace = parse(workspaceContent) as PNPMWorkspace;
+    } catch {
       return ['packages', 'apps', 'tooling', 'api'];
     }
 
@@ -19,7 +22,7 @@ export function getWorkspaceFolders(): string[] {
       return ['packages', 'apps', 'tooling', 'api'];
     }
 
-    const packages = workspace.packages;
+    const { packages } = workspace;
     if (!Array.isArray(packages)) {
       return ['packages', 'apps', 'tooling', 'api'];
     }
@@ -30,10 +33,10 @@ export function getWorkspaceFolders(): string[] {
         (pkg): pkg is string =>
           typeof pkg === 'string' && (pkg.includes('/**') || pkg.includes('/*')),
       )
-      .map((pkg: string) => {
+      .map((pkg: string) =>
         // Handle both "packages/**" and "packages/*" patterns
-        return pkg.replace(/\/\*\*?$/, '').replace(/^['"]|['"]$/g, '');
-      })
+        pkg.replace(/\/\*\*?$/u, '').replace(/^['"]|['"]$/gu, ''),
+      )
       .sort();
 
     if (folders.length === 0) {
@@ -41,7 +44,7 @@ export function getWorkspaceFolders(): string[] {
     }
 
     return folders;
-  } catch (_err) {
+  } catch {
     console.warn('Could not read pnpm-workspace.yaml, using default folders');
     return ['packages', 'apps', 'tooling', 'api'];
   }

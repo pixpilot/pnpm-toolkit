@@ -1,6 +1,6 @@
-import { describe, it, expect } from 'vitest';
-
 import type { GeneratorAnswers } from '../src/types';
+
+import { describe, expect, it } from 'vitest';
 
 import { renderActionsWithHandlebars } from './handlebars-render-utils';
 
@@ -85,8 +85,8 @@ describe('generator snapshot', () => {
       const files = renderActionsWithHandlebars(testCase.answers);
       await expect(files).toMatchFileSnapshot(
         `__snapshots__/generator-${testCase.name
-          .replace(/\s+/g, '-')
-          .replace(/[^a-zA-Z0-9-_]/g, '')
+          .replace(/\s+/gu, '-')
+          .replace(/[^\w-]/gu, '')
           .toLowerCase()}.test.ts.snap`,
       );
     });

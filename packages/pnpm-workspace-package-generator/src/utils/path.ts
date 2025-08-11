@@ -9,5 +9,5 @@ import { fileURLToPath } from 'node:url';
  */
 export function createJoinRelative(metaUrl: string) {
   const baseDir = dirname(fileURLToPath(metaUrl));
-  return (...segments: string[]) => join(baseDir, ...segments);
+  return (...segments: string[]): string => join(baseDir, ...segments);
 }

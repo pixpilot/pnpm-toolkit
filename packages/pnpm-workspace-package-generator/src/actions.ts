@@ -1,8 +1,9 @@
+import type { GeneratorAnswers } from './types';
 import { execSync } from 'node:child_process';
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 
 import { getLicenseActions } from './license-actions';
-import type { GeneratorAnswers } from './types';
+import { hasStringValue, isRecord } from './utils';
 import { getDirName } from './utils/dir-name';
 import { getRootRepoUrl } from './utils/get-root-repo-url';
 import { getPackageName } from './utils/package-name';
@@ -10,9 +11,14 @@ import { createJoinRelative } from './utils/path';
 
 const joinRel = createJoinRelative(import.meta.url);
 
-export function getActions(data: GeneratorAnswers) {
+export function getActions(
+  data: GeneratorAnswers,
+): Array<((answers: GeneratorAnswers) => string) | Record<string, unknown>> {
+  const INDENT_SPACES = 2;
   const actions = [
-    (answers: GeneratorAnswers) => {
+    (origAnswers: GeneratorAnswers) => {
+      // Avoid direct mutation of function parameter
+      const answers = { ...origAnswers };
       if (answers.name) {
         answers.name = getPackageName({
           name: answers.name,
@@ -22,20 +28,21 @@ export function getActions(data: GeneratorAnswers) {
       }
       answers.dirName = getDirName(answers.name);
 
-      if (data.author) {
+      if (hasStringValue(data.author)) {
         answers.author = data.author;
       }
 
-      // Set repoUrl and repoDirectory for the template
-      if (data.repoUrl) {
+      if (hasStringValue(data.repoUrl)) {
         answers.repoUrl = data.repoUrl;
-      } else if (data.baseRepoUrl) {
+      } else if (hasStringValue(data.baseRepoUrl)) {
         answers.repoUrl = data.baseRepoUrl;
       } else {
         answers.repoUrl = getRootRepoUrl() ?? '';
       }
       answers.repoDirectory = `${answers.workspace}/${answers.dirName}`;
 
+      // Copy back to original object
+      Object.assign(origAnswers, answers);
       return 'Config sanitized';
     },
     {
@@ -105,29 +112,28 @@ export function getActions(data: GeneratorAnswers) {
       return 'Invalid package.json';
     }
     // Add user-specified dependencies
-    if (answers.deps?.trim()) {
+    if (hasStringValue(answers.deps?.trim())) {
       const deps = answers.deps.split(' ').filter(Boolean);
-      if (!pkg['dependencies'] || typeof pkg['dependencies'] !== 'object')
-        pkg['dependencies'] = {};
+      if (!isRecord(pkg['dependencies'])) pkg['dependencies'] = {};
       for (const dep of deps) {
         (pkg['dependencies'] as Record<string, string>)[dep] = '*';
       }
     }
 
     // Sort dependencies and devDependencies alphabetically
-    if (pkg['dependencies'] && typeof pkg['dependencies'] === 'object') {
+    if (isRecord(pkg['dependencies'])) {
       const entries = Object.entries(pkg['dependencies'] as Record<string, string>);
       (pkg['dependencies'] as Record<string, string>) = Object.fromEntries(
         entries.sort(([a], [b]) => a.localeCompare(b)),
       );
     }
-    if (pkg['devDependencies'] && typeof pkg['devDependencies'] === 'object') {
+    if (isRecord(pkg['devDependencies'])) {
       const entries = Object.entries(pkg['devDependencies'] as Record<string, string>);
       (pkg['devDependencies'] as Record<string, string>) = Object.fromEntries(
         entries.sort(([a], [b]) => a.localeCompare(b)),
       );
     }
-    writeFileSync(pathStr, JSON.stringify(pkg, null, 2));
+    writeFileSync(pathStr, JSON.stringify(pkg, null, INDENT_SPACES));
     return 'package.json updated';
   });
 
@@ -144,7 +150,7 @@ export function getActions(data: GeneratorAnswers) {
           { stdio: 'inherit' },
         );
         return `Package '${answers.name}' scaffolded successfully in '${answers.workspace}' workspace!`;
-      } catch (_err) {
+      } catch {
         console.warn('Warning: Failed to install dependencies or format files');
         return `Package '${answers.name}' scaffolded in '${answers.workspace}' workspace (with warnings)`;
       }

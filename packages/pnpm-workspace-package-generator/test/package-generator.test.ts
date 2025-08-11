@@ -1,7 +1,7 @@
-import { describe, it, expect, vi, beforeEach, afterAll } from 'vitest';
-
-import { packageGenerator } from '../src/package-generator';
 import type { GeneratorOptions } from '../src/types';
+
+import { afterAll, beforeEach, describe, expect, it, vi } from 'vitest';
+import { packageGenerator } from '../src/package-generator';
 
 // Helper to create a mock plop API
 function createMockPlop() {
@@ -11,11 +11,9 @@ function createMockPlop() {
 }
 
 describe('packageGenerator', () => {
-  vi.mock('../src/actions', () => {
-    return {
-      getActions: vi.fn(() => ['mock-action']),
-    };
-  });
+  vi.mock('../src/actions', () => ({
+    getActions: vi.fn(() => ['mock-action']),
+  }));
 
   beforeEach(() => {
     vi.clearAllMocks();

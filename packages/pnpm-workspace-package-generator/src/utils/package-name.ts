@@ -1,4 +1,5 @@
 import { kebabCase } from 'change-case';
+import { hasStringValue } from './has-string-value';
 
 export interface PackageNameOptions {
   name: string;
@@ -14,11 +15,12 @@ export function getPackageName({
   const kebabName = kebabCase(name);
   if (name.startsWith('@')) {
     return name;
-  } else if (isNpmPackage === false) {
-    return `@internal/${kebabName}`;
-  } else if (orgName) {
-    return `@${orgName}/${kebabName}`;
-  } else {
-    return kebabName;
   }
+  if (isNpmPackage === false) {
+    return `@internal/${kebabName}`;
+  }
+  if (hasStringValue(orgName)) {
+    return `@${orgName}/${kebabName}`;
+  }
+  return kebabName;
 }

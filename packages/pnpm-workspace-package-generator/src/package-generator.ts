@@ -1,11 +1,11 @@
-import { kebabCase } from 'change-case';
 import type { NodePlopAPI } from 'plop';
-
-import { getActions } from './actions';
 import type { GeneratorAnswers, GeneratorOptions } from './types';
+
+import { kebabCase } from 'change-case';
+import { getActions } from './actions';
 import { getWorkspaceFolders } from './utils/folder';
 
-export function packageGenerator(plop: NodePlopAPI, options?: GeneratorOptions) {
+export function packageGenerator(plop: NodePlopAPI, options?: GeneratorOptions): void {
   const workspaceFolders = getWorkspaceFolders();
 
   plop.setGenerator('init', {
@@ -30,7 +30,7 @@ export function packageGenerator(plop: NodePlopAPI, options?: GeneratorOptions) 
         },
         filter: (input: string) => {
           // Convert to kebab-case and remove any scope prefix
-          const cleaned = input.replace(/^@[^/]+\//, '');
+          const cleaned = input.replace(/^@[^/]+\//u, '');
           return kebabCase(cleaned);
         },
       },

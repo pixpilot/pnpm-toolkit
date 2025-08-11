@@ -1,15 +1,15 @@
 {
   "name": "plop-templates",
   "private": true,
-  "engines": {
-    "node": ">=22.14.0",
-    "pnpm": ">=9.6.0"
-  },
+  "packageManager": "pnpm@10.11.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/pixpilot/pnpm-toolkit.git"
   },
-  "packageManager": "pnpm@10.11.1",
+  "engines": {
+    "node": ">=22.14.0",
+    "pnpm": ">=9.6.0"
+  },
   "scripts": {
     "prepare": "husky",
     "preinstall": "npx only-allow pnpm",
@@ -28,9 +28,13 @@
     "clean:packages": "node scripts/cleanup-node-modules.js",
     "clean:packages:install": "pnpm clean:packages && pnpm install",
     "clean:workspaces": "turbo run clean",
+    "deps:update:recursive": "npx taze -r",
     "clean:workspaces:install": "pnpm clean:workspaces && pnpm install",
     "turbo:gen:init": "pnpm --filter ./packages/pnpm-workspace-package-generator build && pnpm turbo gen init",
     "release": "pnpm changeset"
+  },
+  "dependencies": {
+    "@manypkg/find-root": "^3.1.0"
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.5",
@@ -54,8 +58,5 @@
     "typescript": "catalog:dev",
     "vitest": "catalog:dev"
   },
-  "prettier": "@internal/prettier-config",
-  "dependencies": {
-    "@manypkg/find-root": "^3.1.0"
-  }
+  "prettier": "@internal/prettier-config"
 }

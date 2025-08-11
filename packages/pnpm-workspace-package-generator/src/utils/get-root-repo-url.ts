@@ -1,7 +1,9 @@
-import * as fs from 'fs';
-import * as path from 'path';
+import * as fs from 'node:fs';
+import * as path from 'node:path';
+import process from 'node:process';
 
 import { findRootSync } from '@manypkg/find-root';
+import { isRecord } from './is-record';
 
 // import { findMonorepoRoot } from './find-monorepo-root';
 
@@ -17,11 +19,10 @@ export function getRootRepoUrl(dir: string = process.cwd()): string | undefined 
   try {
     const pkgRaw = fs.readFileSync(pkgPath, 'utf-8');
     const pkg: unknown = JSON.parse(pkgRaw);
-    if (pkg && typeof pkg === 'object' && 'repository' in pkg) {
+    if (isRecord(pkg) && 'repository' in pkg) {
       const repo = (pkg as { repository?: unknown }).repository;
       if (
-        repo &&
-        typeof repo === 'object' &&
+        isRecord(repo) &&
         'url' in repo &&
         typeof (repo as { url?: unknown }).url === 'string'
       ) {

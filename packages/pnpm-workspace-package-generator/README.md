@@ -13,7 +13,7 @@ This package exports a function `packageGenerator(plop: PlopGenerator)` that reg
 ```typescript
 import { packageGenerator } from '@pixpilot/pnpm-workspace-package-generator';
 
-export default function (plop) {
+export default function (plop: unknown): void {
   packageGenerator(plop);
 }
 ```

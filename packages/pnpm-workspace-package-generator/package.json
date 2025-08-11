@@ -1,18 +1,16 @@
 {
   "name": "@pixpilot/pnpm-workspace-package-generator",
-  "version": "1.5.8",
-  "keywords": [],
-  "license": "MIT",
-  "author": "pixpilot",
   "type": "module",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "version": "1.5.8",
+  "packageManager": "pnpm@10.12.2",
+  "author": "pixpilot",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/pixpilot/pnpm-toolkit.git",
     "directory": "packages/pnpm-workspace-package-generator"
   },
+  "keywords": [],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -20,6 +18,9 @@
       "require": "./dist/index.cjs"
     }
   },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -52,6 +53,5 @@
     "@types/node": "catalog:dev",
     "@web/rollup-plugin-copy": "^0.5.1",
     "rollup": "catalog:dev"
-  },
-  "packageManager": "pnpm@10.12.2"
+  }
 }
