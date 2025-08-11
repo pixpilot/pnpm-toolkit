@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "change-case": "^5.4.4",
-    "yaml": "^2.8.0"
+    "yaml": "^2.8.1"
   },
   "devDependencies": {
     "@internal/eslint-config": "workspace:*",
