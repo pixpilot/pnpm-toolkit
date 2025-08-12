@@ -67,10 +67,10 @@ describe('name', () => {
   "packages/simple-package/tsconfig.build.json": "{
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "rootDir": "./src",
     "declaration": true,
     "declarationDir": "./dist",
-    "outDir": "./dist",
-    "rootDir": "./src"
+    "outDir": "./dist"
   },
   "include": ["src"],
   "exclude": ["test/**/*.spec.ts", "test/**/*.test.ts"]
