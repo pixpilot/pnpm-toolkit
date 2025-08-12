@@ -1,7 +1,7 @@
 {
   "name": "@pixpilot/workspace-package-generator",
   "type": "module",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "packageManager": "pnpm@10.12.2",
   "author": "pixpilot",
   "license": "MIT",
