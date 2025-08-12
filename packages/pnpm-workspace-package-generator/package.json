@@ -1,8 +1,8 @@
 {
   "name": "@pixpilot/pnpm-workspace-package-generator",
   "type": "module",
-  "version": "1.5.8",
-  "packageManager": "pnpm@10.14.0",
+  "version": "1.5.9",
+  "packageManager": "pnpm@10.12.2",
   "author": "pixpilot",
   "license": "MIT",
   "repository": {
