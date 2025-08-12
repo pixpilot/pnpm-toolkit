@@ -31,7 +31,7 @@
     "deps:update": "npx taze -r -w && pnpm install",
     "deps:update:major": "npx taze major -r -w && pnpm install",
     "clean:workspaces:install": "pnpm clean:workspaces && pnpm install",
-    "turbo:gen:init": "pnpm --filter ./packages/pnpm-workspace-package-generator build && pnpm turbo gen init",
+    "turbo:gen:init": "pnpm --filter ./packages/workspace-package-generator build && pnpm turbo gen init",
     "release": "pnpm changeset"
   },
   "devDependencies": {

@@ -28,8 +28,7 @@
     "eslint-plugin-react-refresh": "^0.4.20",
     "eslint-plugin-turbo": "^2.5.5",
     "prettier": "catalog:dev",
-    "typescript": "catalog:dev",
-    "typescript-eslint": "^8.39.1"
+    "typescript": "catalog:dev"
   },
   "prettier": "@internal/prettier-config"
 }

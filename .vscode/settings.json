@@ -11,4 +11,7 @@
       "file": "commitlint.config.mjs"
     }
   ],
+  "cSpell.words": [
+    "Plopfile"
+  ],
 }

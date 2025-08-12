@@ -1,14 +1,14 @@
 {
-  "name": "@pixpilot/pnpm-workspace-package-generator",
+  "name": "@pixpilot/workspace-package-generator",
   "type": "module",
-  "version": "1.5.10",
+  "version": "1.0.0",
   "packageManager": "pnpm@10.12.2",
   "author": "pixpilot",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/pixpilot/pnpm-toolkit.git",
-    "directory": "packages/pnpm-workspace-package-generator"
+    "directory": "packages/workspace-package-generator"
   },
   "keywords": [],
   "exports": {

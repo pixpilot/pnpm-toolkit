@@ -1,4 +1,4 @@
-import packageGenerator from '../../packages/pnpm-workspace-package-generator/dist/index';
+import packageGenerator from '../../packages/workspace-package-generator/dist/index';
 
 import type { NodePlopAPI } from 'plop';
 

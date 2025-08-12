@@ -19,7 +19,7 @@ This toolkit provides utilities, generators, and configuration helpers to stream
 
 ## Packages & Tools
 
-- [`packages/pnpm-workspace-package-generator`](packages/pnpm-workspace-package-generator/README.md): Package scaffolding and workspace utilities
+- [`packages/workspace-package-generator`](packages/workspace-package-generator/README.md): Package scaffolding and workspace utilities
 
 ## Release Workflow
 
