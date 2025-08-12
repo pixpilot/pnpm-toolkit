@@ -54,9 +54,16 @@ export default rollupConfig;
 ",
   "packages/simple-package/src/index.ts": "export * from './main';",
   "packages/simple-package/src/main.ts": "export const name = '@internal/simple-package';",
-  "packages/simple-package/test/main.test.ts": "import { describe, it, expect } from 'vitest'; import { name } from '../src';
-describe('name', () => { it('should be defined', () => { expect(name).toBeDefined(); });
-});",
+  "packages/simple-package/test/main.test.ts": "import { describe, expect, it } from 'vitest';
+
+import { name } from '../src';
+
+describe('name', () => {
+  it('should be defined', () => {
+    expect(name).toBeDefined();
+  });
+});
+",
   "packages/simple-package/tsconfig.build.json": "{
   "extends": "./tsconfig.json",
   "compilerOptions": {
@@ -71,7 +78,7 @@ describe('name', () => { it('should be defined', () => { expect(name).toBeDefine
 ",
   "packages/simple-package/tsconfig.json": "{
   "extends": "@internal/tsconfig/base.json",
-  "include": ["src", "test", "scripts", "rollup.config.js"]
+  "include": ["."]
 }
 ",
   "packages/simple-package/vitest.config.ts": "import baseConfig from '@internal/vitest-config';

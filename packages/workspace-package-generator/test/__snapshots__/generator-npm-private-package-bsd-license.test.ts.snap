@@ -94,9 +94,16 @@ export default rollupConfig;
 ",
   "packages/private-npm/src/index.ts": "export * from './main';",
   "packages/private-npm/src/main.ts": "export const name = 'private-npm';",
-  "packages/private-npm/test/main.test.ts": "import { describe, it, expect } from 'vitest'; import { name } from '../src';
-describe('name', () => { it('should be defined', () => { expect(name).toBeDefined(); });
-});",
+  "packages/private-npm/test/main.test.ts": "import { describe, expect, it } from 'vitest';
+
+import { name } from '../src';
+
+describe('name', () => {
+  it('should be defined', () => {
+    expect(name).toBeDefined();
+  });
+});
+",
   "packages/private-npm/tsconfig.build.json": "{
   "extends": "./tsconfig.json",
   "compilerOptions": {
@@ -111,7 +118,7 @@ describe('name', () => { it('should be defined', () => { expect(name).toBeDefine
 ",
   "packages/private-npm/tsconfig.json": "{
   "extends": "@internal/tsconfig/base.json",
-  "include": ["src", "test", "scripts", "rollup.config.js"]
+  "include": ["."]
 }
 ",
   "packages/private-npm/vitest.config.ts": "import baseConfig from '@internal/vitest-config';
