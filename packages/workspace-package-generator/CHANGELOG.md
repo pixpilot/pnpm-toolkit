@@ -1,5 +1,11 @@
 # @pixpilot/workspace-package-generator
 
+## 1.0.1
+
+### Patch Changes
+
+- fix generate package lint error
+
 ## 1.0.0
 
 ### Major Changes
