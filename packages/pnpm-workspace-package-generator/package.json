@@ -2,7 +2,7 @@
   "name": "@pixpilot/pnpm-workspace-package-generator",
   "type": "module",
   "version": "1.5.8",
-  "packageManager": "pnpm@10.12.2",
+  "packageManager": "pnpm@10.14.0",
   "author": "pixpilot",
   "license": "MIT",
   "repository": {
@@ -40,8 +40,9 @@
     "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ../../.prettierignore"
   },
   "dependencies": {
+    "@manypkg/find-root": "^3.1.0",
     "change-case": "^5.4.4",
-    "yaml": "^2.8.0"
+    "yaml": "^2.8.1"
   },
   "devDependencies": {
     "@internal/eslint-config": "workspace:*",
