@@ -1,5 +1,11 @@
 # @pixpilot/workspace-package-generator
 
+## 1.0.2
+
+### Patch Changes
+
+- sort tsconfig.build.json template
+
 ## 1.0.1
 
 ### Patch Changes
