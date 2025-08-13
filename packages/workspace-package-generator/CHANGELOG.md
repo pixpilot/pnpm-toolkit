@@ -1,5 +1,11 @@
 # @pixpilot/workspace-package-generator
 
+## 1.0.3
+
+### Patch Changes
+
+- update include paths in tsconfig templates
+
 ## 1.0.2
 
 ### Patch Changes
