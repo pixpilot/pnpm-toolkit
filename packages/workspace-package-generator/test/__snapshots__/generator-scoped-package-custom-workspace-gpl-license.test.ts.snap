@@ -96,7 +96,7 @@ describe('name', () => {
 ",
   "custom/scoped-pkg/tsconfig.json": "{
   "extends": "@internal/tsconfig/base.json",
-  "include": ["."]
+  "include": ["src/**/*", "test/**/*", "scripts/**/*", "*.config.ts", "*.config.js"]
 }
 ",
   "custom/scoped-pkg/vitest.config.ts": "import baseConfig from '@internal/vitest-config';

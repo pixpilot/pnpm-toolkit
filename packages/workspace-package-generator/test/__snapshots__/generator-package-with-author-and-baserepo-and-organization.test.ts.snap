@@ -112,7 +112,7 @@ describe('name', () => {
 ",
   "packages/with-author-repo/tsconfig.json": "{
   "extends": "@internal/tsconfig/base.json",
-  "include": ["."]
+  "include": ["src/**/*", "test/**/*", "scripts/**/*", "*.config.ts", "*.config.js"]
 }
 ",
   "packages/with-author-repo/vitest.config.ts": "import baseConfig from '@internal/vitest-config';

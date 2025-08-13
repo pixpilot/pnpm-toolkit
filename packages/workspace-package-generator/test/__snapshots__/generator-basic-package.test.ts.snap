@@ -78,7 +78,7 @@ describe('name', () => {
 ",
   "packages/simple-package/tsconfig.json": "{
   "extends": "@internal/tsconfig/base.json",
-  "include": ["."]
+  "include": ["src/**/*", "test/**/*", "scripts/**/*", "*.config.ts", "*.config.js"]
 }
 ",
   "packages/simple-package/vitest.config.ts": "import baseConfig from '@internal/vitest-config';

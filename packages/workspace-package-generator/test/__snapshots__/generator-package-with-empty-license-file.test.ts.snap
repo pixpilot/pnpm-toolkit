@@ -79,7 +79,7 @@ describe('name', () => {
 ",
   "packages/empty-license/tsconfig.json": "{
   "extends": "@internal/tsconfig/base.json",
-  "include": ["."]
+  "include": ["src/**/*", "test/**/*", "scripts/**/*", "*.config.ts", "*.config.js"]
 }
 ",
   "packages/empty-license/vitest.config.ts": "import baseConfig from '@internal/vitest-config';
