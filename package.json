@@ -11,7 +11,6 @@
     "pnpm": ">=9.6.0"
   },
   "scripts": {
-    "prepare": "husky",
     "preinstall": "npx only-allow pnpm",
     "build": "turbo run build",
     "tsc:watch": "tsc --noEmit --watch --project tsconfig.watch.json",
@@ -20,11 +19,12 @@
     "lint": "turbo run lint --continue -- --cache --cache-location .cache/.eslintcache",
     "lint:fix": "turbo run lint --continue -- --fix --cache --cache-location .cache/.eslintcache",
     "lint:ws": "pnpm dlx sherif@latest",
+    "typecheck": "turbo run typecheck",
+    "fix:all": "pnpm format:fix && pnpm lint:fix && pnpm typecheck",
     "postinstall": "pnpm lint:ws",
     "test": "turbo run test",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest run --coverage",
-    "typecheck": "turbo run typecheck",
     "clean:packages": "node scripts/cleanup-node-modules.js",
     "clean:packages:install": "pnpm clean:packages && pnpm install",
     "clean:workspaces": "turbo run clean",
@@ -32,7 +32,8 @@
     "deps:update:major": "npx taze major -r -w && pnpm install",
     "clean:workspaces:install": "pnpm clean:workspaces && pnpm install",
     "turbo:gen:init": "pnpm --filter ./packages/workspace-package-generator build && pnpm turbo gen init",
-    "release": "pnpm changeset"
+    "release": "pnpm changeset",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.5",
