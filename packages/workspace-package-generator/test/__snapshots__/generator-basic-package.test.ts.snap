@@ -42,10 +42,12 @@ export default baseConfig;
     "@internal/rollup-config": "workspace:*",
     "@internal/tsconfig": "workspace:*",
     "@internal/vitest-config": "workspace:*",
-    "@pixpilot/dev-config": "catalog:dev",
     "@types/node": "catalog:dev",
-    "rollup": "catalog:dev"
-  }
+    "eslint": "catalog:dev",
+    "rollup": "catalog:dev",
+    "typescript": "catalog:dev"
+  },
+  "prettier": "@internal/prettier-config"
 }
 ",
   "packages/simple-package/rollup.config.js": "import rollupConfig from '@internal/rollup-config';
