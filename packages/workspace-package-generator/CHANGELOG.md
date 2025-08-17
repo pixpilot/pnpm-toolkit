@@ -1,5 +1,11 @@
 # @pixpilot/workspace-package-generator
 
+## 1.0.4
+
+### Patch Changes
+
+- update devDependencies in package.json template
+
 ## 1.0.3
 
 ### Patch Changes
