@@ -20,8 +20,9 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
   "custom/scoped-pkg/README.md": "# @scope/scoped-pkg
 
 ## Usage Add usage instructions here.",
-  "custom/scoped-pkg/eslint.config.ts": "import baseConfig from '@internal/eslint-config/base';
+  "custom/scoped-pkg/eslint.config.mjs": "import baseConfig from '@internal/eslint-config/base';
 
+/** @type {import('typescript-eslint').Config} */
 export default baseConfig;
 ",
   "custom/scoped-pkg/package.json": "{

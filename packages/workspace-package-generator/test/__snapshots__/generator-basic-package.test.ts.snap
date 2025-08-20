@@ -2,8 +2,9 @@
   "packages/simple-package/README.md": "# @internal/simple-package
 
 ## Usage Add usage instructions here.",
-  "packages/simple-package/eslint.config.ts": "import baseConfig from '@internal/eslint-config/base';
+  "packages/simple-package/eslint.config.mjs": "import baseConfig from '@internal/eslint-config/base';
 
+/** @type {import('typescript-eslint').Config} */
 export default baseConfig;
 ",
   "packages/simple-package/package.json": "{

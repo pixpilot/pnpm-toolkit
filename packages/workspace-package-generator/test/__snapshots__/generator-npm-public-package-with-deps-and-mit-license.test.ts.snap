@@ -24,8 +24,9 @@ SOFTWARE.
   "packages/public-npm/README.md": "# public-npm
 
 ## Usage Add usage instructions here.",
-  "packages/public-npm/eslint.config.ts": "import baseConfig from '@internal/eslint-config/base';
+  "packages/public-npm/eslint.config.mjs": "import baseConfig from '@internal/eslint-config/base';
 
+/** @type {import('typescript-eslint').Config} */
 export default baseConfig;
 ",
   "packages/public-npm/package.json": "{

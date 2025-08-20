@@ -30,8 +30,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   "packages/private-npm/README.md": "# private-npm
 
 ## Usage Add usage instructions here.",
-  "packages/private-npm/eslint.config.ts": "import baseConfig from '@internal/eslint-config/base';
+  "packages/private-npm/eslint.config.mjs": "import baseConfig from '@internal/eslint-config/base';
 
+/** @type {import('typescript-eslint').Config} */
 export default baseConfig;
 ",
   "packages/private-npm/package.json": "{

@@ -47,8 +47,8 @@ export function getActions(
     },
     {
       type: 'add',
-      path: '{{ workspace }}/{{ dirName }}/eslint.config.ts',
-      templateFile: joinRel('templates', 'eslint.config.ts.hbs'),
+      path: '{{ workspace }}/{{ dirName }}/eslint.config.mjs',
+      templateFile: joinRel('templates', 'eslint.config.mjs.hbs'),
     },
     {
       type: 'add',

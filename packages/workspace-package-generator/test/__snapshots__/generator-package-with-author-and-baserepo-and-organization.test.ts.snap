@@ -24,8 +24,9 @@ SOFTWARE.
   "packages/with-author-repo/README.md": "# @test-org/with-author-repo
 
 ## Usage Add usage instructions here.",
-  "packages/with-author-repo/eslint.config.ts": "import baseConfig from '@internal/eslint-config/base';
+  "packages/with-author-repo/eslint.config.mjs": "import baseConfig from '@internal/eslint-config/base';
 
+/** @type {import('typescript-eslint').Config} */
 export default baseConfig;
 ",
   "packages/with-author-repo/package.json": "{
