@@ -32,6 +32,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ## Usage Add usage instructions here.",
   "packages/private-npm/eslint.config.mjs": "import baseConfig from '@internal/eslint-config/base';
 
+// Uncomment to use the internal ESLint config if available
+// /** @type {import('@internal/eslint-config').Config} */
 /** @type {import('typescript-eslint').Config} */
 export default baseConfig;
 ",
