@@ -1,5 +1,11 @@
 # @pixpilot/workspace-package-generator
 
+## 1.0.5
+
+### Patch Changes
+
+- 4bfe1ec: changed eslint config ext from ts to mjs for maximum compatibility
+
 ## 1.0.4
 
 ### Patch Changes
