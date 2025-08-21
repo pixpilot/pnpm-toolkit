@@ -1,5 +1,11 @@
 # @pixpilot/workspace-package-generator
 
+## 1.0.6
+
+### Patch Changes
+
+- comment out TypeScript ESLint type annotation
+
 ## 1.0.5
 
 ### Patch Changes
