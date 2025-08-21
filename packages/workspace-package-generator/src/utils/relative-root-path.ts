@@ -1,7 +1,3 @@
-import { existsSync } from 'node:fs';
-import { dirname, relative, resolve } from 'node:path';
-import process from 'node:process';
-
 /**
  * Calculate the relative path from a target directory to the repository root.
  * This is useful for generating correct paths to files like .gitignore and .prettierignore
@@ -11,43 +7,15 @@ import process from 'node:process';
  * @returns The relative path to the repository root (e.g., "../../../")
  */
 export function getRelativeRootPath(targetPath: string): string {
-  // Find the repository root by looking for common root indicators
-  const rootIndicators = ['pnpm-workspace.yaml', 'package.json', '.git'];
+  // Normalize path separators to forward slashes
+  const normalizedPath = targetPath.replace(/\\/gu, '/');
 
-  // Start from current working directory
-  const searchStartPath = process.cwd();
+  // Split the path and count the number of directory levels
+  const parts = normalizedPath.split('/').filter((part) => part.length > 0);
+  const levels = parts.length;
 
-  let repoRoot: string | undefined;
-
-  // Try to find the repository root using common indicators
-  let currentPath = searchStartPath;
-  while (currentPath !== dirname(currentPath)) {
-    // Continue until we reach the filesystem root
-    for (const indicator of rootIndicators) {
-      const indicatorPath = resolve(currentPath, indicator);
-      if (existsSync(indicatorPath)) {
-        repoRoot = currentPath;
-        break;
-      }
-    }
-    if (typeof repoRoot === 'string') break;
-    currentPath = dirname(currentPath);
-  }
-
-  // Fallback to current working directory if no root found
-  const finalRepoRoot = repoRoot ?? searchStartPath;
-
-  // Calculate the absolute path of the target directory
-  const absoluteTargetPath = resolve(finalRepoRoot, targetPath);
-
-  // Calculate relative path from target to root
-  const relativePath = relative(absoluteTargetPath, finalRepoRoot);
-
-  // Normalize path separators to forward slashes for consistency across platforms
-  const normalizedPath = relativePath.replace(/\\/gu, '/');
-
-  // Ensure the path ends with a separator for clean concatenation
-  return normalizedPath ? `${normalizedPath}/` : './';
+  // Generate the appropriate number of "../" for each level
+  return '../'.repeat(levels);
 }
 
 /**
