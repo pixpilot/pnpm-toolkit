@@ -36,12 +36,12 @@
     "prepare": "husky"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.29.5",
+    "@changesets/cli": "^2.29.6",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@internal/prettier-config": "workspace:*",
     "@pixpilot/dev-config": "catalog:dev",
-    "@turbo/gen": "^2.5.5",
+    "@turbo/gen": "^2.5.6",
     "@vitest/coverage-v8": "catalog:dev",
     "@vitest/ui": "catalog:dev",
     "eslint": "catalog:dev",
@@ -52,8 +52,8 @@
     "plop": "^4.0.1",
     "prettier": "catalog:dev",
     "rimraf": "^6.0.1",
-    "tsx": "^4.20.3",
-    "turbo": "^2.5.5",
+    "tsx": "^4.20.4",
+    "turbo": "^2.5.6",
     "typescript": "catalog:dev",
     "vitest": "catalog:dev"
   },
