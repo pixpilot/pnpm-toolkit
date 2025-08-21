@@ -12,27 +12,9 @@ catalogs:
     '@types/node':
       specifier: ^22.17.1
       version: 22.17.1
-    '@vitest/coverage-v8':
-      specifier: ^3.2.4
-      version: 3.2.4
-    '@vitest/ui':
-      specifier: ^3.2.4
-      version: 3.2.4
-    eslint:
-      specifier: ^9.33.0
-      version: 9.33.0
-    prettier:
-      specifier: ^3.6.2
-      version: 3.6.2
     rollup:
       specifier: ^4.46.2
       version: 4.46.2
-    typescript:
-      specifier: ^5.9.2
-      version: 5.9.2
-    vitest:
-      specifier: ^3.2.4
-      version: 3.2.4
 
 importers:
 
@@ -5421,7 +5403,7 @@ snapshots:
 
   '@babel/parser@7.28.0':
     dependencies:
-      '@babel/types': 7.28.0
+      '@babel/types': 7.28.1
 
   '@babel/plugin-syntax-async-generators@7.8.4(@babel/core@7.28.0)':
     dependencies:
@@ -5560,7 +5542,6 @@ snapshots:
     dependencies:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.27.1
-    optional: true
 
   '@bcoe/v8-coverage@0.2.3':
     optional: true

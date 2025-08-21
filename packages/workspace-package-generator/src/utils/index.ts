@@ -5,3 +5,4 @@ export * from './has-string-value';
 export * from './is-record';
 export * from './package-name';
 export * from './path';
+export * from './relative-root-path';

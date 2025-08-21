@@ -45,7 +45,7 @@
     "test:coverage": "vitest --coverage",
     "typecheck": "tsc --noEmit",
     "lint": "eslint",
-    "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ../../.prettierignore"
+    "format": "prettier --check . --ignore-path {{ relativeRootPath }}.gitignore --ignore-path {{ relativeRootPath }}.prettierignore"
   },
   "devDependencies": {
     "@internal/eslint-config": "workspace:*",

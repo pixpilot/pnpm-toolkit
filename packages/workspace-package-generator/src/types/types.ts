@@ -10,4 +10,5 @@ export interface GeneratorAnswers extends GeneratorOptions {
   dirName: string;
   repoUrl?: string;
   repoDirectory?: string; // This is used in templates, but not in answers
+  relativeRootPath?: string; // Dynamic path to repository root (e.g., "../../" or "../../../")
 }

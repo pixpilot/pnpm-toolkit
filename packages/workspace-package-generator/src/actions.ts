@@ -8,6 +8,7 @@ import { getDirName } from './utils/dir-name';
 import { getRootRepoUrl } from './utils/get-root-repo-url';
 import { getPackageName } from './utils/package-name';
 import { createJoinRelative } from './utils/path';
+import { getPackageRelativeRootPath } from './utils/relative-root-path';
 
 const joinRel = createJoinRelative(import.meta.url);
 
@@ -19,6 +20,13 @@ export function getActions(
     (origAnswers: GeneratorAnswers) => {
       // Avoid direct mutation of function parameter
       const answers = { ...origAnswers };
+
+      // Store the original input name which may contain directory structure
+      const originalName = answers.name;
+
+      // Calculate directory name from the original input (preserving nested paths)
+      answers.dirName = getDirName(originalName);
+
       if (answers.name) {
         answers.name = getPackageName({
           name: answers.name,
@@ -26,7 +34,6 @@ export function getActions(
           orgName: data.orgName,
         });
       }
-      answers.dirName = getDirName(answers.name);
 
       if (hasStringValue(data.author)) {
         answers.author = data.author;
@@ -40,6 +47,12 @@ export function getActions(
         answers.repoUrl = getRootRepoUrl() ?? '';
       }
       answers.repoDirectory = `${answers.workspace}/${answers.dirName}`;
+
+      // Calculate the relative path to the repository root
+      answers.relativeRootPath = getPackageRelativeRootPath(
+        answers.workspace,
+        answers.dirName,
+      );
 
       // Copy back to original object
       Object.assign(origAnswers, answers);

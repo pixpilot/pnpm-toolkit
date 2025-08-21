@@ -31,7 +31,11 @@ export function packageGenerator(plop: NodePlopAPI, options?: GeneratorOptions):
         filter: (input: string) => {
           // Convert to kebab-case and remove any scope prefix
           const cleaned = input.replace(/^@[^/]+\//u, '');
-          return kebabCase(cleaned);
+          // Split by forward slashes, convert each part to kebab-case, then rejoin
+          return cleaned
+            .split('/')
+            .map((part) => kebabCase(part))
+            .join('/');
         },
       },
       {
