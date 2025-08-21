@@ -1,5 +1,11 @@
 # @pixpilot/workspace-package-generator
 
+## 1.1.0
+
+### Minor Changes
+
+- add relative path calculations for package structure
+
 ## 1.0.6
 
 ### Patch Changes
