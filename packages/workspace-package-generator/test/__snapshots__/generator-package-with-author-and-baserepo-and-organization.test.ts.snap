@@ -65,7 +65,7 @@ export default baseConfig;
     "prepublishOnly": "pnpm run clean && pnpm run build",
     "clean": "rimraf dist",
     "build": "pnpm run clean && rollup -c",
-    "test": "vitest",
+    "test": "vitest --run --passWithNoTests",
     "test:watch": "vitest --watch",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage",
