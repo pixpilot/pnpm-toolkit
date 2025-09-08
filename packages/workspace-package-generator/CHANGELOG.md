@@ -1,5 +1,11 @@
 # @pixpilot/workspace-package-generator
 
+## 1.1.2
+
+### Patch Changes
+
+- update test command to run with no tests
+
 ## 1.1.1
 
 ### Patch Changes
