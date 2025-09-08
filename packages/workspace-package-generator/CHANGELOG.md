@@ -1,5 +1,11 @@
 # @pixpilot/workspace-package-generator
 
+## 1.1.3
+
+### Patch Changes
+
+- add missing dependency for `rimraf`
+
 ## 1.1.2
 
 ### Patch Changes
