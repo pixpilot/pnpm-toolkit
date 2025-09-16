@@ -37,7 +37,8 @@
   {{/if}}
   "scripts": {
     "prepublishOnly": "pnpm run clean && pnpm run build",
-    "clean": "rimraf dist",
+    "clean": "git clean -xdf .cache .turbo dist",
+    "clean:all": "git clean -xdf .cache .turbo dist node_modules",
     "build": "pnpm run clean && rollup -c",
     "test": "vitest --run --passWithNoTests",
     "test:watch": "vitest --watch",
@@ -55,7 +56,6 @@
     "@internal/vitest-config": "workspace:*",
     "@types/node": "catalog:dev",
     "eslint": "catalog:dev",
-    "rimraf": "catalog:dev",
     "rollup": "catalog:dev",
     "typescript": "catalog:dev"
   },

@@ -29,9 +29,10 @@
   },
   "scripts": {
     "test": "vitest run",
-    "prepublishOnly": "pnpm run clean && pnpm run build",
-    "clean": "rimraf dist",
-    "build": "pnpm run clean && rollup -c",
+    "prepublishOnly": "pnpm run clean:build && pnpm run build",
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "clean:build": "git clean -xdf .cache .turbo dist",
+    "build": "pnpm run clean:build && rollup -c",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage",
     "test:run": "vitest run",

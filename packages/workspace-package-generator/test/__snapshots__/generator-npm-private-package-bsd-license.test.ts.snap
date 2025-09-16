@@ -1,7 +1,7 @@
 {
   "packages/private-npm/LICENSE": "BSD 3-Clause License
 
-Copyright (c) , 
+Copyright (c) ,
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -69,7 +69,8 @@ export default baseConfig;
   },
   "scripts": {
     "prepublishOnly": "pnpm run clean && pnpm run build",
-    "clean": "rimraf dist",
+    "clean:all": "git clean -xdf .cache .turbo dist node_modules",
+    "clean": "git clean -xdf .cache .turbo dist",
     "build": "pnpm run clean && rollup -c",
     "test": "vitest --run --passWithNoTests",
     "test:watch": "vitest --watch",
