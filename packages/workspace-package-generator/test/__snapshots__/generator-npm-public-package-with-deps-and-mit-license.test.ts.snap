@@ -35,9 +35,9 @@ export default baseConfig;
   "name": "public-npm",
   "type": "module",
   "version": "0.0.0",
-  "packageManager": "pnpm@10.12.2",
+  "packageManager": "pnpm@10.17.0",
   "author": "",
-  "license": "MIT",
+  "license": "MIT", 
   "repository": {
     "type": "git",
     "url": "https://github.com/pixpilot/pnpm-toolkit.git",
