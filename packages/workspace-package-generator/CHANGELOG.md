@@ -1,5 +1,12 @@
 # @pixpilot/workspace-package-generator
 
+## 1.1.4
+
+### Patch Changes
+
+- update author field in package.json
+- update clean scripts for consistency
+
 ## 1.1.3
 
 ### Patch Changes
