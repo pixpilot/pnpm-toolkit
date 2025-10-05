@@ -1,5 +1,11 @@
 # @pixpilot/workspace-package-generator
 
+## 1.1.5
+
+### Patch Changes
+
+- update packageManager version to pnpm@10.17.0
+
 ## 1.1.4
 
 ### Patch Changes
