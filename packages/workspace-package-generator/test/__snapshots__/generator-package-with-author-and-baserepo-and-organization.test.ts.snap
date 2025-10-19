@@ -65,7 +65,8 @@ export default baseConfig;
     "prepublishOnly": "pnpm run clean && pnpm run build",
     "clean": "git clean -xdf .cache .turbo dist",
     "clean:all": "git clean -xdf .cache .turbo dist node_modules",
-    "build": "pnpm run clean && tsdown",
+    "build": "tsdown",
+    "build:watch": "tsdown --watch",
         "test": "vitest --run --passWithNoTests",
     "test:watch": "vitest --watch",
     "test:ui": "vitest --ui",
@@ -111,6 +112,7 @@ export default defineConfig({
   entry: 'src/index.ts',
   dts: true,
   minify: true,
+  clean: true,
 });
 ",
   "packages/with-author-repo/vitest.config.ts": "import baseConfig from '@internal/vitest-config';

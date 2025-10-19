@@ -50,8 +50,10 @@
     {{#if isNpmPackage}}
     {{#if (eq bundler "tsc")}}
     "build": "pnpm run clean && tsc -p tsconfig.build.json",
+    "build:watch": "pnpm run clean && tsc -p tsconfig.build.json --watch",
     {{else if (eq bundler "tsdown")}}
-    "build": "pnpm run clean && tsdown",
+    "build": "tsdown",
+    "build:watch": "tsdown --watch",
     {{/if}}
     {{/if}}
     "test": "vitest --run --passWithNoTests",

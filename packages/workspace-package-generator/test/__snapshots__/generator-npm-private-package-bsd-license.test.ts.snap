@@ -72,6 +72,7 @@ export default baseConfig;
     "clean": "git clean -xdf .cache .turbo dist",
     "clean:all": "git clean -xdf .cache .turbo dist node_modules",
     "build": "pnpm run clean && tsc -p tsconfig.build.json",
+    "build:watch": "pnpm run clean && tsc -p tsconfig.build.json --watch",
     "test": "vitest --run --passWithNoTests",
     "test:watch": "vitest --watch",
     "test:ui": "vitest --ui",
