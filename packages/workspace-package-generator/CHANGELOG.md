@@ -1,5 +1,11 @@
 # @pixpilot/workspace-package-generator
 
+## 2.1.0
+
+### Minor Changes
+
+- add watch scripts for TypeScript and tsdown
+
 ## 2.0.0
 
 ### Major Changes
