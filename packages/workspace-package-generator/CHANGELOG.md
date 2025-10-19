@@ -1,5 +1,15 @@
 # @pixpilot/workspace-package-generator
 
+## 2.0.0
+
+### Major Changes
+
+- removed rollup, using tsdown instead
+
+### Patch Changes
+
+- update `tsc:watch` script to use `pnpm exec`
+
 ## 1.1.5
 
 ### Patch Changes
