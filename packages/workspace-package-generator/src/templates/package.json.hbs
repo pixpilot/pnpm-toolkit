@@ -7,7 +7,7 @@
   {{/unless}}
   "packageManager": "pnpm@10.17.0",
   "author": "{{{ author }}}",
-  "license": "MIT", 
+  "license": "MIT",
   {{#if repoUrl}}
   "repository": {
     "type": "git",
@@ -17,9 +17,13 @@
   {{/if}}
   "keywords": [],
   "exports": "./src/index.ts",
+  {{#if isNpmPackage}}
+  {{#unless (eq bundler "none")}}
   "files": [
     "dist"
   ],
+  {{/unless}}
+  {{/if}}
   {{#if isNpmPackage}}
   "publishConfig": {
     "access": "{{#if isPublicPackage}}public{{else}}restricted{{/if}}",
@@ -36,10 +40,20 @@
   },
   {{/if}}
   "scripts": {
+    {{#if isNpmPackage}}
+    {{#unless (eq bundler "none")}}
     "prepublishOnly": "pnpm run clean && pnpm run build",
+    {{/unless}}
+    {{/if}}
     "clean": "git clean -xdf .cache .turbo dist",
     "clean:all": "git clean -xdf .cache .turbo dist node_modules",
-    "build": "pnpm run clean && rollup -c",
+    {{#if isNpmPackage}}
+    {{#if (eq bundler "tsc")}}
+    "build": "pnpm run clean && tsc -p tsconfig.build.json",
+    {{else if (eq bundler "tsdown")}}
+    "build": "pnpm run clean && tsdown",
+    {{/if}}
+    {{/if}}
     "test": "vitest --run --passWithNoTests",
     "test:watch": "vitest --watch",
     "test:ui": "vitest --ui",
@@ -51,12 +65,24 @@
   "devDependencies": {
     "@internal/eslint-config": "workspace:*",
     "@internal/prettier-config": "workspace:*",
-    "@internal/rollup-config": "workspace:*",
+    {{#if isNpmPackage}}
+    {{#if (eq bundler "tsdown")}}
+    {{#if hasTsdownConfig}}
+    "@internal/tsdown-config": "workspace:*",
+    {{else}}
+    "@pixpilot/tsdown-config": "^1.0.0",
+    {{/if}}
+    {{/if}}
+    {{/if}}
     "@internal/tsconfig": "workspace:*",
     "@internal/vitest-config": "workspace:*",
     "@types/node": "catalog:dev",
     "eslint": "catalog:dev",
-    "rollup": "catalog:dev",
+    {{#if isNpmPackage}}
+    {{#if (eq bundler "tsdown")}}
+    "tsdown": "catalog:dev",
+    {{/if}}
+    {{/if}}
     "typescript": "catalog:dev"
   },
   "prettier": "@internal/prettier-config"

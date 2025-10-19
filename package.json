@@ -1,7 +1,7 @@
 {
   "name": "plop-templates",
   "private": true,
-  "packageManager": "pnpm@10.14.0",
+  "packageManager": "pnpm@10.18.3",
   "repository": {
     "type": "git",
     "url": "https://github.com/pixpilot/pnpm-toolkit.git"
@@ -36,24 +36,24 @@
     "prepare": "husky"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.29.5",
-    "@commitlint/cli": "^19.8.1",
-    "@commitlint/config-conventional": "^19.8.1",
+    "@changesets/cli": "^2.29.7",
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
     "@internal/prettier-config": "workspace:*",
     "@pixpilot/dev-config": "catalog:dev",
-    "@turbo/gen": "^2.5.5",
+    "@turbo/gen": "^2.5.8",
     "@vitest/coverage-v8": "catalog:dev",
     "@vitest/ui": "catalog:dev",
     "eslint": "catalog:dev",
     "handlebars": "^4.7.8",
     "husky": "^9.1.7",
-    "lint-staged": "^16.1.5",
-    "node-plop": "^0.32.0",
-    "plop": "^4.0.1",
+    "lint-staged": "^16.2.4",
+    "node-plop": "^0.32.3",
+    "plop": "^4.0.4",
     "prettier": "catalog:dev",
     "rimraf": "^6.0.1",
-    "tsx": "^4.20.3",
-    "turbo": "^2.5.5",
+    "tsx": "^4.20.6",
+    "turbo": "^2.5.8",
     "typescript": "catalog:dev",
     "vitest": "catalog:dev"
   },

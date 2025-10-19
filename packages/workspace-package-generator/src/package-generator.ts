@@ -5,8 +5,21 @@ import { kebabCase } from 'change-case';
 import { getActions } from './actions';
 import { getWorkspaceFolders } from './utils/folder';
 
-export function packageGenerator(plop: NodePlopAPI, options?: GeneratorOptions): void {
+const defaultOptions: GeneratorOptions = {
+  defaultBundler: 'tsc',
+  tsdownInternalPackageName: '@internal/tsdown-config',
+  tsdownPackageName: '@pixpilot/tsdown-config',
+};
+
+export function packageGenerator(
+  plop: NodePlopAPI,
+  generatorOptions?: GeneratorOptions,
+): void {
+  const options = { ...defaultOptions, ...generatorOptions };
   const workspaceFolders = getWorkspaceFolders();
+
+  // Register the 'eq' helper for Handlebars
+  plop.setHelper('eq', (a: unknown, b: unknown) => a === b);
 
   plop.setGenerator('init', {
     description: 'Generate a new package for the monorepo',
@@ -56,6 +69,34 @@ export function packageGenerator(plop: NodePlopAPI, options?: GeneratorOptions):
         message: 'Is this a public package?',
         default: false,
         when: (answers) => (answers as GeneratorAnswers).isNpmPackage === true,
+      },
+      {
+        type: 'list',
+        name: 'bundler',
+        message: 'Select a bundler for this package:',
+        choices: [
+          // { name: 'None (no bundling)', value: 'none' },
+          { name: 'TypeScript Compiler (tsc)', value: 'tsc' },
+          { name: 'tsdown', value: 'tsdown' },
+        ],
+        default: options?.defaultBundler || 'tsc',
+        when: (answers) => (answers as GeneratorAnswers).isNpmPackage === true,
+      },
+      {
+        type: 'input',
+        name: 'bundleSizeLimit',
+        message: 'Enter bundle size limit in KB (leave empty for no limit):',
+        default: '',
+        filter: (input: string) => {
+          const trimmed = input.trim();
+          if (trimmed === '') return undefined;
+          const num = Number.parseFloat(trimmed);
+          return Number.isNaN(num) ? undefined : num;
+        },
+        when: (answers) => {
+          const ans = answers as GeneratorAnswers;
+          return ans.bundler === 'tsdown' && ans.isPublicPackage === true;
+        },
       },
       {
         type: 'list',

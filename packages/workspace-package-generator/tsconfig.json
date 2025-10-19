@@ -6,6 +6,6 @@
     "scripts",
     "src/utils/**/*.ts",
     "src/utils/**/*.d.ts",
-    "vitest.config.ts"
+    "*.config.ts"
   ]
 }

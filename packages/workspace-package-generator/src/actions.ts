@@ -1,6 +1,9 @@
 import type { GeneratorAnswers } from './types';
 import { execSync } from 'node:child_process';
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import process from 'node:process';
+
+import { getPackages } from '@manypkg/get-packages';
 
 import { getLicenseActions } from './license-actions';
 import { hasStringValue, isRecord } from './utils';
@@ -12,14 +15,41 @@ import { getPackageRelativeRootPath } from './utils/relative-root-path';
 
 const joinRel = createJoinRelative(import.meta.url);
 
+/**
+ * Check if TSDOWN_CONFIG_PACKAGE_NAME exists in the monorepo
+ */
+async function checkTsdownConfigExists(data: GeneratorAnswers): Promise<boolean> {
+  try {
+    const { packages } = await getPackages(process.cwd());
+    return packages.some(
+      (pkg: { packageJson: { name: string } }) =>
+        pkg.packageJson.name === data.tsdownInternalPackageName,
+    );
+  } catch {
+    return false;
+  }
+}
+
 export function getActions(
   data: GeneratorAnswers,
-): Array<((answers: GeneratorAnswers) => string) | Record<string, unknown>> {
+): Array<
+  ((answers: GeneratorAnswers) => string | Promise<string>) | Record<string, unknown>
+> {
   const INDENT_SPACES = 2;
-  const actions = [
-    (origAnswers: GeneratorAnswers) => {
+  const actions: Array<
+    ((answers: GeneratorAnswers) => string | Promise<string>) | Record<string, unknown>
+  > = [
+    async (origAnswers: GeneratorAnswers) => {
       // Avoid direct mutation of function parameter
       const answers = { ...origAnswers };
+
+      // Check if TSDOWN_CONFIG_PACKAGE_NAME exists
+      const hasTsdownConfig = await checkTsdownConfigExists(data);
+      answers.hasTsdownConfig = hasTsdownConfig;
+
+      answers.tsdownPackageName = hasTsdownConfig
+        ? data.tsdownInternalPackageName!
+        : data.tsdownPackageName!;
 
       // Store the original input name which may contain directory structure
       const originalName = answers.name;
@@ -75,11 +105,6 @@ export function getActions(
     },
     {
       type: 'add',
-      path: '{{ workspace }}/{{ dirName }}/rollup.config.js',
-      templateFile: joinRel('templates', 'rollup.config.js.hbs'),
-    },
-    {
-      type: 'add',
       path: '{{ workspace }}/{{ dirName }}/vitest.config.ts',
       templateFile: joinRel('templates', 'vitest.config.ts.hbs'),
     },
@@ -87,6 +112,25 @@ export function getActions(
       type: 'add',
       path: '{{ workspace }}/{{ dirName }}/tsconfig.build.json',
       templateFile: joinRel('templates', 'tsconfig.build.json.hbs'),
+      skip: (answers: GeneratorAnswers) => {
+        // Only add tsconfig.build.json if bundler is 'tsc'
+        if (answers?.bundler !== 'tsc') {
+          return 'Skipping tsconfig.build.json (bundler is not tsc)';
+        }
+        return false;
+      },
+    },
+    {
+      type: 'add',
+      path: '{{ workspace }}/{{ dirName }}/tsdown.config.ts',
+      templateFile: joinRel('templates', 'tsdown.config.ts.hbs'),
+      skip: (answers: GeneratorAnswers) => {
+        // Only add tsdown.config.ts if bundler is 'tsdown'
+        if (answers?.bundler !== 'tsdown') {
+          return 'Skipping tsdown.config.ts (bundler is not tsdown)';
+        }
+        return false;
+      },
     },
     {
       type: 'add',
@@ -95,18 +139,13 @@ export function getActions(
     },
     {
       type: 'add',
-      path: '{{ workspace }}/{{ dirName }}/src/main.ts',
-      templateFile: joinRel('templates', 'src', 'main.ts.hbs'),
-    },
-    {
-      type: 'add',
       path: '{{ workspace }}/{{ dirName }}/src/index.ts',
       templateFile: joinRel('templates', 'src', 'index.ts.hbs'),
     },
     {
       type: 'add',
-      path: '{{ workspace }}/{{ dirName }}/test/main.test.ts',
-      templateFile: joinRel('templates', 'test', 'main.test.ts.hbs'),
+      path: '{{ workspace }}/{{ dirName }}/test/index.test.ts',
+      templateFile: joinRel('templates', 'test', 'index.test.ts.hbs'),
     },
   ];
 

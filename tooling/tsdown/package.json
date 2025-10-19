@@ -1,10 +1,13 @@
 {
-  "name": "@internal/rollup-config",
+  "name": "@internal/tsdown-config",
   "type": "module",
   "version": "0.1.0",
   "private": true,
   "exports": {
-    ".": "./index.js"
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js"
+    }
   },
   "scripts": {
     "clean:all": "git clean -xdf .cache .turbo node_modules",
@@ -12,14 +15,16 @@
     "lint": "eslint",
     "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ../../.prettierignore"
   },
+  "dependencies": {
+    "@pixpilot/tsdown-config": "^0.2.0",
+    "tsdown": "catalog:dev"
+  },
   "devDependencies": {
     "@internal/eslint-config": "workspace:*",
     "@internal/tsconfig": "workspace:*",
     "@pixpilot/dev-config": "catalog:dev",
-    "@rollup/plugin-terser": "^0.4.4",
-    "@rollup/plugin-typescript": "^12.1.4",
     "@types/node": "catalog:dev",
-    "rollup": "catalog:dev",
+    "glob": "catalog:dev",
     "typescript": "catalog:dev"
   },
   "prettier": "@internal/prettier-config"

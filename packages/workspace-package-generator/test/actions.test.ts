@@ -47,6 +47,7 @@ const cases: { name: string; answers: GeneratorAnswers }[] = [
       deps: '',
       isNpmPackage: true,
       isPublicPackage: false,
+      bundler: 'tsc',
       licenseType: 'bsd-3-clause',
       dirName: 'simple-package',
     },
@@ -70,6 +71,7 @@ const cases: { name: string; answers: GeneratorAnswers }[] = [
       deps: '',
       isNpmPackage: true,
       isPublicPackage: true,
+      bundler: 'tsdown',
       licenseType: 'mit',
       author: 'Test Author <test@exaple.com> (https://github.com/exaple/)',
       orgName: 'test-org',
@@ -82,7 +84,7 @@ const cases: { name: string; answers: GeneratorAnswers }[] = [
 describe('generator snapshot', () => {
   for (const testCase of cases) {
     it(`should generate correct files for ${testCase.name}`, async () => {
-      const files = renderActionsWithHandlebars(testCase.answers);
+      const files = await renderActionsWithHandlebars(testCase.answers);
       await expect(files).toMatchFileSnapshot(
         `__snapshots__/generator-${testCase.name
           .replace(/\s+/gu, '-')

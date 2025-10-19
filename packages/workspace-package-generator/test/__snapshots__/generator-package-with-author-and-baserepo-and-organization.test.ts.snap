@@ -37,7 +37,7 @@ export default baseConfig;
   "version": "0.0.0",
   "packageManager": "pnpm@10.17.0",
   "author": "Test Author <test@exaple.com> (https://github.com/exaple/)",
-  "license": "MIT", 
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/foo/bar.git",
@@ -65,8 +65,8 @@ export default baseConfig;
     "prepublishOnly": "pnpm run clean && pnpm run build",
     "clean": "git clean -xdf .cache .turbo dist",
     "clean:all": "git clean -xdf .cache .turbo dist node_modules",
-    "build": "pnpm run clean && rollup -c",
-    "test": "vitest --run --passWithNoTests",
+    "build": "pnpm run clean && tsdown",
+        "test": "vitest --run --passWithNoTests",
     "test:watch": "vitest --watch",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage",
@@ -77,24 +77,19 @@ export default baseConfig;
   "devDependencies": {
     "@internal/eslint-config": "workspace:*",
     "@internal/prettier-config": "workspace:*",
-    "@internal/rollup-config": "workspace:*",
+    "@pixpilot/tsdown-config": "^1.0.0",
     "@internal/tsconfig": "workspace:*",
     "@internal/vitest-config": "workspace:*",
     "@types/node": "catalog:dev",
     "eslint": "catalog:dev",
-    "rollup": "catalog:dev",
+    "tsdown": "catalog:dev",
     "typescript": "catalog:dev"
   },
   "prettier": "@internal/prettier-config"
 }
 ",
-  "packages/with-author-repo/rollup.config.js": "import rollupConfig from '@internal/rollup-config';
-
-export default rollupConfig;
-",
-  "packages/with-author-repo/src/index.ts": "export * from './main';",
-  "packages/with-author-repo/src/main.ts": "export const name = '@test-org/with-author-repo';",
-  "packages/with-author-repo/test/main.test.ts": "import { describe, expect, it } from 'vitest';
+  "packages/with-author-repo/src/index.ts": "export const name = '@test-org/with-author-repo';",
+  "packages/with-author-repo/test/index.test.ts": "import { describe, expect, it } from 'vitest';
 
 import { name } from '../src';
 
@@ -104,22 +99,19 @@ describe('name', () => {
   });
 });
 ",
-  "packages/with-author-repo/tsconfig.build.json": "{
-  "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "rootDir": "./src",
-    "declaration": true,
-    "declarationDir": "./dist",
-    "outDir": "./dist"
-  },
-  "include": ["src"],
-  "exclude": ["test/**/*.spec.ts", "test/**/*.test.ts"]
-}
-",
   "packages/with-author-repo/tsconfig.json": "{
   "extends": "@internal/tsconfig/base.json",
   "include": ["src/**/*", "test/**/*", "scripts/**/*", "*.config.ts", "*.config.js"]
 }
+",
+  "packages/with-author-repo/tsdown.config.ts": "import { defineConfig } from '@internal/tsdown-config';
+
+
+export default defineConfig({
+  entry: 'src/index.ts',
+  dts: true,
+  minify: true,
+});
 ",
   "packages/with-author-repo/vitest.config.ts": "import baseConfig from '@internal/vitest-config';
 

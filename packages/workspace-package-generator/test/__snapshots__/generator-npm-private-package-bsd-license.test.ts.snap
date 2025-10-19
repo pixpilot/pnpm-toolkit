@@ -43,7 +43,7 @@ export default baseConfig;
   "version": "0.0.0",
   "packageManager": "pnpm@10.17.0",
   "author": "",
-  "license": "MIT", 
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/pixpilot/pnpm-toolkit.git",
@@ -71,7 +71,7 @@ export default baseConfig;
     "prepublishOnly": "pnpm run clean && pnpm run build",
     "clean": "git clean -xdf .cache .turbo dist",
     "clean:all": "git clean -xdf .cache .turbo dist node_modules",
-    "build": "pnpm run clean && rollup -c",
+    "build": "pnpm run clean && tsc -p tsconfig.build.json",
     "test": "vitest --run --passWithNoTests",
     "test:watch": "vitest --watch",
     "test:ui": "vitest --ui",
@@ -83,24 +83,17 @@ export default baseConfig;
   "devDependencies": {
     "@internal/eslint-config": "workspace:*",
     "@internal/prettier-config": "workspace:*",
-    "@internal/rollup-config": "workspace:*",
     "@internal/tsconfig": "workspace:*",
     "@internal/vitest-config": "workspace:*",
     "@types/node": "catalog:dev",
     "eslint": "catalog:dev",
-    "rollup": "catalog:dev",
     "typescript": "catalog:dev"
   },
   "prettier": "@internal/prettier-config"
 }
 ",
-  "packages/private-npm/rollup.config.js": "import rollupConfig from '@internal/rollup-config';
-
-export default rollupConfig;
-",
-  "packages/private-npm/src/index.ts": "export * from './main';",
-  "packages/private-npm/src/main.ts": "export const name = 'private-npm';",
-  "packages/private-npm/test/main.test.ts": "import { describe, expect, it } from 'vitest';
+  "packages/private-npm/src/index.ts": "export const name = 'private-npm';",
+  "packages/private-npm/test/index.test.ts": "import { describe, expect, it } from 'vitest';
 
 import { name } from '../src';
 

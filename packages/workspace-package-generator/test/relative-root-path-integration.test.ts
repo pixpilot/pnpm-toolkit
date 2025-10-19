@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { getActions } from '../src/actions';
 
 describe('relativeRootPath integration', () => {
-  it('should calculate relativeRootPath for packages in simple structure', () => {
+  it('should calculate relativeRootPath for packages in simple structure', async () => {
     const mockData: Partial<GeneratorAnswers> = {
       name: 'test-package',
       workspace: 'packages',
@@ -12,15 +12,15 @@ describe('relativeRootPath integration', () => {
     };
 
     const actions = getActions(mockData as GeneratorAnswers);
-    const sanitizeAction = actions[0] as (answers: GeneratorAnswers) => string;
+    const sanitizeAction = actions[0] as (answers: GeneratorAnswers) => Promise<string>;
 
     const answers = { ...mockData } as GeneratorAnswers;
-    sanitizeAction(answers);
+    await sanitizeAction(answers);
 
     expect(answers.relativeRootPath).toBe('../../');
   });
 
-  it('should calculate relativeRootPath for packages in nested structure', () => {
+  it('should calculate relativeRootPath for packages in nested structure', async () => {
     const mockData: Partial<GeneratorAnswers> = {
       name: 'utils/helper-package',
       workspace: 'packages',
@@ -28,15 +28,15 @@ describe('relativeRootPath integration', () => {
     };
 
     const actions = getActions(mockData as GeneratorAnswers);
-    const sanitizeAction = actions[0] as (answers: GeneratorAnswers) => string;
+    const sanitizeAction = actions[0] as (answers: GeneratorAnswers) => Promise<string>;
 
     const answers = { ...mockData } as GeneratorAnswers;
-    sanitizeAction(answers);
+    await sanitizeAction(answers);
 
     expect(answers.relativeRootPath).toBe('../../../');
   });
 
-  it('should calculate relativeRootPath for tooling packages', () => {
+  it('should calculate relativeRootPath for tooling packages', async () => {
     const mockData: Partial<GeneratorAnswers> = {
       name: 'eslint-config',
       workspace: 'tooling',
@@ -44,10 +44,10 @@ describe('relativeRootPath integration', () => {
     };
 
     const actions = getActions(mockData as GeneratorAnswers);
-    const sanitizeAction = actions[0] as (answers: GeneratorAnswers) => string;
+    const sanitizeAction = actions[0] as (answers: GeneratorAnswers) => Promise<string>;
 
     const answers = { ...mockData } as GeneratorAnswers;
-    sanitizeAction(answers);
+    await sanitizeAction(answers);
 
     expect(answers.relativeRootPath).toBe('../../');
   });

@@ -7,6 +7,7 @@ import { packageGenerator } from '../src/package-generator';
 function createMockPlop() {
   return {
     setGenerator: vi.fn(),
+    setHelper: vi.fn(),
   };
 }
 

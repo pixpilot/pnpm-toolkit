@@ -1,3 +1,5 @@
+export type defaultBundler = 'tsc' | 'tsdown';
+
 export interface GeneratorOptions {
   orgName?: string;
   author?: string;
@@ -8,4 +10,13 @@ export interface GeneratorOptions {
    * This value is used as-is and is not modified or appended to.
    */
   baseRepoUrl?: string;
+  defaultBundler?: defaultBundler;
+  /**
+   * @default @pixpilot/tsdown-config
+   */
+  tsdownPackageName?: string;
+  /**
+   * @default @internal/tsdown-config
+   */
+  tsdownInternalPackageName?: string;
 }
