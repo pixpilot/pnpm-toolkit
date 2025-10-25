@@ -1,10 +1,13 @@
 {
-  "name": "plop-templates",
+  "name": "pnpm-templates",
   "private": true,
   "packageManager": "pnpm@10.18.3",
+  "author": "ccpu <m.doaie@hotmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/pixpilot/pnpm-templates",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pixpilot/pnpm-toolkit.git"
+    "url": "https://github.com/pixpilot/pnpm-templates.git"
   },
   "engines": {
     "node": ">=22.14.0",
@@ -31,9 +34,10 @@
     "deps:update:major": "npx taze major -r -w && pnpm install",
     "clean:workspaces": "turbo run clean:all",
     "clean:workspaces:install": "pnpm clean:workspaces && pnpm install",
-    "turbo:gen:init": "pnpm --filter ./packages/workspace-package-generator build && pnpm turbo gen init",
+    "turbo:gen:init": "pnpm turbo gen init",
     "prepare": "husky",
-    "changeset": "changeset"
+    "changeset": "changeset",
+    "generate-packages-section": "node scripts/generate-packages-section.js"
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.7",

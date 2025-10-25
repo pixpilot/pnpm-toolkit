@@ -17,7 +17,7 @@ This toolkit provides utilities, generators, and configuration helpers to stream
    pnpm test
    ```
 
-## Packages & Tools
+## Packages
 
 - [`packages/workspace-package-generator`](packages/workspace-package-generator/README.md): Package scaffolding and workspace utilities
 

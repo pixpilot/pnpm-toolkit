@@ -1,10 +1,9 @@
-import packageGenerator from '../../packages/workspace-package-generator/dist/index';
+import { packageGenerator } from '@pixpilot/workspace-package-generator';
 
-import type { NodePlopAPI } from 'plop';
-
-module.exports = function generator(plop: NodePlopAPI) {
+module.exports = function generator(plop: unknown) {
   packageGenerator(plop, {
-    author: 'm.doaie <m.doaie@hotmail.com>',
+    author: 'ccpu',
+    defaultBundler: 'tsdown',
     orgName: 'pixpilot',
   });
 };

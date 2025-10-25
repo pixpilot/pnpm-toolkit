@@ -3,6 +3,10 @@
 - Only use pnpm for installing or managing dependencies in this project. Do not use npm, yarn, or any other package manager.
 - This is a monorepo powered by Turbo and pnpm.
 
+## Commenting
+
+- If a comment is long, write it as a multi-line comment and break lines for readability.
+
 ## Testing
 
 This project uses Vitest for testing.
@@ -16,4 +20,4 @@ This project uses Vitest for testing.
 - **Frontend UI Components (React/Vue only):** Use PascalCase for component files (e.g., `MyButton.tsx`).
   - Example: `MyButton.tsx`, `UserProfile.vue`
 - **Config files:** Use kebab-case unless the framework or library has a different standard—follow the convention for that tool.
-  - Example: `tsconfig.json`, `tsdown.config.ts`
+  - Example: `tsconfig.json`
