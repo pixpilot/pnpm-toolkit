@@ -19,7 +19,10 @@ This toolkit provides utilities, generators, and configuration helpers to stream
 
 ## Packages
 
-- [`packages/workspace-package-generator`](packages/workspace-package-generator/README.md): Package scaffolding and workspace utilities
+### [workspace-package-generator](./packages/workspace-package-generator/README.md)
+
+A tool for generating workspace packages in pnpm monorepos.
+
 
 ## Release Workflow
 
