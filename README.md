@@ -1,37 +1,48 @@
-# pnpm-toolkit
+# pnpm-templates
 
-This toolkit provides utilities, generators, and configuration helpers to streamline development, testing, and publishing workflows in pnpm-based monorepos.
+> A modern TypeScript monorepo managed with pnpm and TurboRepo.
 
-## Getting Started
+## 🚀 Getting Started
 
-1. **Install dependencies:**
-   ```sh
-   pnpm install
-   ```
-2. **Build all packages:**
-   ```sh
-   pnpm build
-   ```
-3. **Run tests:**
-   ```sh
-   pnpm test
-   ```
+### Development
 
-## Packages
+Build all packages:
+
+```sh
+pnpm build
+```
+
+Run tests:
+
+```sh
+pnpm test
+```
+
+Lint and format:
+
+```sh
+pnpm lint
+pnpm format
+```
+
+### Create a New Package
+
+Generate a new package in the monorepo:
+
+```sh
+pnpm run turbo:gen:init
+```
+
+## 📦 Packages
 
 ### [workspace-package-generator](./packages/workspace-package-generator/README.md)
 
 A tool for generating workspace packages in pnpm monorepos.
 
+## 🚢 Releases
 
-## Release Workflow
+This project uses [Changesets](https://github.com/changesets/changesets) for version management and publishing.
 
-Push to the `main` or `next` branch to trigger automated versioning and publishing via GitHub Actions ([Changeset Autopilot Action](https://github.com/pixpilot/changesets-autopilot)).
-
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
-## License
+## 📄 License
 
 [MIT](LICENSE)

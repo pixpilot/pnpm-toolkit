@@ -2,12 +2,15 @@
   "name": "pnpm-templates",
   "private": true,
   "packageManager": "pnpm@10.18.3",
-  "author": "ccpu <m.doaie@hotmail.com>",
+  "author": "m.doaie <m.doaie@hotmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/pixpilot/pnpm-templates",
   "repository": {
     "type": "git",
     "url": "https://github.com/pixpilot/pnpm-templates.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pixpilot/pnpm-templates/issues"
   },
   "engines": {
     "node": ">=22.14.0",
