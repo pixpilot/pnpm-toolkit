@@ -1,5 +1,12 @@
 # @pixpilot/workspace-package-generator
 
+## 2.1.2
+
+### Patch Changes
+
+- update README usage instructions and repository URLs
+- correct usage instructions formatting in README template
+
 ## 2.1.1
 
 ### Patch Changes
