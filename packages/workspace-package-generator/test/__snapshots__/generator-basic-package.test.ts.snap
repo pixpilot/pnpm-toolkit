@@ -1,7 +1,7 @@
 {
   "packages/simple-package/README.md": "# @internal/simple-package
 
-## Usage Add usage instructions here.",
+## Add usage instructions here.",
   "packages/simple-package/eslint.config.mjs": "import baseConfig from '@internal/eslint-config/base';
 
 // Uncomment to use the internal ESLint config if available
@@ -19,7 +19,7 @@ export default baseConfig;
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pixpilot/pnpm-toolkit.git",
+    "url": "https://github.com/pixpilot/pnpm-templates.git",
     "directory": "packages/simple-package"
   },
   "keywords": [],

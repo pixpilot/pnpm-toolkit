@@ -23,7 +23,7 @@ SOFTWARE.
 ",
   "packages/public-npm/README.md": "# public-npm
 
-## Usage Add usage instructions here.",
+## Add usage instructions here.",
   "packages/public-npm/eslint.config.mjs": "import baseConfig from '@internal/eslint-config/base';
 
 // Uncomment to use the internal ESLint config if available
@@ -40,7 +40,7 @@ export default baseConfig;
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pixpilot/pnpm-toolkit.git",
+    "url": "https://github.com/pixpilot/pnpm-templates.git",
     "directory": "packages/public-npm"
   },
   "keywords": [],

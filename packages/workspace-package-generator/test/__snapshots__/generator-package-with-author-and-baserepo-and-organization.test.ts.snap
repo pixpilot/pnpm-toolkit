@@ -23,7 +23,7 @@ SOFTWARE.
 ",
   "packages/with-author-repo/README.md": "# @test-org/with-author-repo
 
-## Usage Add usage instructions here.",
+## Add usage instructions here.",
   "packages/with-author-repo/eslint.config.mjs": "import baseConfig from '@internal/eslint-config/base';
 
 // Uncomment to use the internal ESLint config if available
