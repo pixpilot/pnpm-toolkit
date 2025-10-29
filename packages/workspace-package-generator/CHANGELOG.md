@@ -1,5 +1,12 @@
 # @pixpilot/workspace-package-generator
 
+## 2.1.3
+
+### Patch Changes
+
+- correct copyright formatting in license snapshots
+- update clean script to improve package cleanup
+
 ## 2.1.2
 
 ### Patch Changes
