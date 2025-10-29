@@ -2,7 +2,7 @@
   "custom/scoped-pkg/LICENSE": "GNU GENERAL PUBLIC LICENSE
 Version 3, 29 June 2007
 
-Copyright (c)  
+Copyright (c)
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -44,7 +44,7 @@ export default baseConfig;
   "exports": "./src/index.ts",
   "scripts": {
     "clean": "git clean -xdf .cache .turbo dist",
-    "clean:all": "git clean -xdf .cache .turbo dist node_modules",
+    "clean:all": "pnpm clean && git clean -xdf node_modules",
     "test": "vitest --run --passWithNoTests",
     "test:watch": "vitest --watch",
     "test:ui": "vitest --ui",

@@ -32,7 +32,7 @@
     "test": "vitest run",
     "prepublishOnly": "pnpm run clean:build && pnpm run build",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
-    "clean:build": "git clean -xdf .cache .turbo dist",
+    "clean:all": "pnpm clean && git clean -xdf node_modules",
     "build": "tsdown",
     "build:watch": "tsdown --watch",
     "test:ui": "vitest --ui",

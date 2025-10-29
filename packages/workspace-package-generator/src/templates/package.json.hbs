@@ -46,7 +46,7 @@
     {{/unless}}
     {{/if}}
     "clean": "git clean -xdf .cache .turbo dist",
-    "clean:all": "git clean -xdf .cache .turbo dist node_modules",
+    "clean:all": "pnpm clean && git clean -xdf node_modules",
     {{#if isNpmPackage}}
     {{#if (eq bundler "tsc")}}
     "build": "pnpm run clean && tsc -p tsconfig.build.json",
