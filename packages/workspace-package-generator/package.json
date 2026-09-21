@@ -11,6 +11,9 @@
     "url": "https://github.com/pixpilot/pnpm-toolkit.git",
     "directory": "packages/workspace-package-generator"
   },
+  "bugs": {
+    "url": "https://github.com/pixpilot/pnpm-toolkit/issues"
+  },
   "keywords": [],
   "exports": {
     ".": {
